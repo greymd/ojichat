@@ -94,7 +94,7 @@ func selectMessage() string {
 			}
 		}
 		// 挨拶以外の感情に関しては語尾を最大2文字までカタカナに変換するおじさんカタカナ活用を適用する
-		if s != pattern.GREEDING {
+		if s != pattern.GREETING {
 			selectedMessage = katakanaKatsuyou(selectedMessage, rand.Intn(3))
 		}
 	}
