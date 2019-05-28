@@ -9,9 +9,7 @@ import (
 // 文章中一種類に統一されるタグ
 var uniqTags = map[string][]string{
 	// 対象の名前
-	"{TARGET_NAME}": []string{
-		"優子",
-	},
+	"{TARGET_NAME}": []string{},
 	// おじさんの一人称
 	"{FIRST_PERSON}": []string{
 		"僕",
@@ -56,12 +54,36 @@ var flexTags = map[string][]string{
 	},
 }
 
-// ConvertTags ; message内にあるタグを置換する
-func ConvertTags(message string) string {
+// ConvertTags ; message内にあるタグを置換して結果を返す
+func ConvertTags(message, targetName string, emojiNumber int) string {
 	rand.Seed(time.Now().UnixNano())
+	if targetName != "" {
+		uniqTags["{TARGET_NAME}"] = []string{targetName}
+	} else {
+		// TODO: Faker
+		uniqTags["{TARGET_NAME}"] = []string{"優子", "幸子"}
+	}
 	for tag, pat := range uniqTags {
 		content := pat[rand.Intn(len(pat))]
-		message = strings.Replace(message, tag, content, -1)
+		message = strings.ReplaceAll(message, tag, content)
+	}
+
+	for tag, pat := range flexTags {
+		n := strings.Count(message, tag)
+		for i := 0; i < n; i++ {
+			content := combineMultiplePatterns(pat, emojiNumber)
+			// タグを置換
+			message = strings.Replace(message, tag, content, 1)
+		}
 	}
 	return message
+}
+
+// combineMultiplePatterns: 複数のパターンをランダムにつなげる
+func combineMultiplePatterns(patterns []string, number int) string {
+	result := ""
+	for i := 0; i < rand.Intn(number+1); i++ {
+		result += patterns[rand.Intn(len(patterns))]
+	}
+	return result
 }
