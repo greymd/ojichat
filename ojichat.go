@@ -13,8 +13,8 @@ var usage = `Usage:
   ojichat [options] [<name>]
 
 Options:
-  -h --help                Show this screen.
-  --version                Show version.
+  -h, --help               Show this screen.
+  -V, --version            Show version.
   -e <num>, --emoji=<num>  Maximum number of continuous Emojis [default: 4].`
 
 func main() {
