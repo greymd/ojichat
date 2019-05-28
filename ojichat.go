@@ -15,7 +15,7 @@ var usage = `Usage:
 Options:
   -h --help                Show this screen.
   --version                Show version.
-  -e <num>, --emoji=<num>  Maximum number of continuous Emojis [default: 3].`
+  -e <num>, --emoji=<num>  Maximum number of continuous Emojis [default: 4].`
 
 func main() {
 	parser := &docopt.Parser{OptionsFirst: true}
