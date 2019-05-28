@@ -4,6 +4,8 @@ import (
 	"math/rand"
 	"strings"
 	"time"
+
+	"github.com/mattn/go-gimei"
 )
 
 // 文章中一種類に統一されるタグ
@@ -60,8 +62,7 @@ func ConvertTags(message, targetName string, emojiNumber int) string {
 	if targetName != "" {
 		uniqTags["{TARGET_NAME}"] = []string{targetName}
 	} else {
-		// TODO: Faker
-		uniqTags["{TARGET_NAME}"] = []string{"優子", "幸子"}
+		uniqTags["{TARGET_NAME}"] = []string{randomFirstName()}
 	}
 	for tag, pat := range uniqTags {
 		content := pat[rand.Intn(len(pat))]
@@ -81,9 +82,22 @@ func ConvertTags(message, targetName string, emojiNumber int) string {
 
 // combineMultiplePatterns: 複数のパターンをランダムにつなげる
 func combineMultiplePatterns(patterns []string, number int) string {
+	rand.Seed(time.Now().UnixNano())
 	result := ""
 	for i := 0; i < rand.Intn(number+1); i++ {
 		result += patterns[rand.Intn(len(patterns))]
 	}
 	return result
+}
+
+func randomFirstName() string {
+	rand.Seed(time.Now().UnixNano())
+	name := gimei.NewFemale()
+	switch rand.Intn(2) {
+	case 0:
+		return name.First.Kanji()
+	case 1:
+		return name.First.Katakana()
+	}
+	return name.First.Hiragana()
 }
