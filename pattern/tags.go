@@ -121,7 +121,7 @@ func ConvertTags(message, targetName string, emojiNumber int) string {
 
 	for tag, pat := range uniqTags {
 		content := pat[rand.Intn(len(pat))]
-		message = strings.ReplaceAll(message, tag, content)
+		message = strings.Replace(message, tag, content, -1)
 	}
 
 	for tag, pat := range flexTags {
