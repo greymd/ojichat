@@ -1,6 +1,7 @@
 package generator
 
 import (
+	"fmt"
 	"math/rand"
 	"regexp"
 	"strconv"
@@ -11,11 +12,36 @@ import (
 	"github.com/miiton/kanaconv"
 )
 
+// PunctuationConfig ... 句読点挿入の設定
+type PunctuationConfig struct {
+	TargetHinshis []string
+	Rate          int
+}
+
+var pconfigs = []PunctuationConfig{
+	{
+		TargetHinshis: []string{},
+		Rate:          0,
+	},
+	{
+		TargetHinshis: []string{"助動詞"},
+		Rate:          30,
+	},
+	{
+		TargetHinshis: []string{"助動詞", "助詞"},
+		Rate:          60,
+	},
+	{
+		TargetHinshis: []string{"助動詞", "助詞"},
+		Rate:          100,
+	},
+}
+
 // Config ... main で受け取られる引数、オプション
 type Config struct {
 	TargetName        string `docopt:"<name>"`
-	EmojiNum          int    `docopt:"--emoji"`
-	PunctiuationLebel int    `docopt:"--punctuation"`
+	EmojiNum          int    `docopt:"-e"`
+	PunctiuationLebel int    `docopt:"-p"`
 }
 
 // Start ... おじさんの文言を生成
@@ -29,8 +55,7 @@ func Start(config Config) (string, error) {
 	for _, s := range selectedOnara {
 		selected := pattern.OnaraMessages[s]
 		selectedMessage += selected[rand.Intn(len(selected))]
-		// 挨拶以外の感情に関しては語尾を最大2文字までカタカナに変換するおじさんカタカナ活用[2]を適用する
-		// [2] 要出典
+		// 挨拶以外の感情に関しては語尾を最大2文字までカタカナに変換するおじさんカタカナ活用を適用する
 		if s != pattern.GREEDING {
 			selectedMessage = katakanaKatsuyou(selectedMessage, rand.Intn(3))
 		}
@@ -39,8 +64,12 @@ func Start(config Config) (string, error) {
 	// タグを変換
 	selectedMessage = pattern.ConvertTags(selectedMessage, config.TargetName, config.EmojiNum)
 
+	level := config.PunctiuationLebel
+	if level < 0 || level > 3 {
+		return "", fmt.Errorf("句読点挿入頻度レベルが不正です: %v", level)
+	}
 	// 句読点レベルに応じて、おじさんがよくやる句読点を適宜挿入する
-	result := insertPunctuations(selectedMessage, config.PunctiuationLebel)
+	result := insertPunctuations(selectedMessage, pconfigs[level])
 
 	return result, nil
 }
@@ -60,10 +89,11 @@ func katakanaKatsuyou(message string, number int) string {
 }
 
 // 句読点レベルに応じ、助詞、助動詞の後に句読点を挿入する
-func insertPunctuations(message string, level int) string {
-	if level == 0 {
+func insertPunctuations(message string, config PunctuationConfig) string {
+	if config.Rate == 0 {
 		return message
 	}
+	rand.Seed(time.Now().UnixNano())
 	result := ""
 	t := tokenizer.New()
 	tokens := t.Tokenize(message)
@@ -72,10 +102,16 @@ func insertPunctuations(message string, level int) string {
 			continue
 		}
 		features := token.Features()
-		switch features[0] {
-		case "助動詞":
+		hinshiFlag := false
+		for _, hinshi := range config.TargetHinshis {
+			if hinshi == features[0] {
+				hinshiFlag = true
+				break
+			}
+		}
+		if hinshiFlag && rand.Intn(100) <= config.Rate {
 			result += token.Surface + "、"
-		default:
+		} else {
 			result += token.Surface
 		}
 	}

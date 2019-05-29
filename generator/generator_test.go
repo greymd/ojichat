@@ -38,9 +38,26 @@ func TestKatakanaKatsuyou4(t *testing.T) {
 	}
 }
 
-func TestInsertPunctuations(t *testing.T) {
+func TestInsertPunctuations0(t *testing.T) {
+	expected := "どうしちゃったのかな"
+	actual := insertPunctuations("どうしちゃったのかな", PunctuationConfig{[]string{"助動詞", "名詞"}, 0})
+	t.Log(actual)
+	if actual != expected {
+		t.Errorf("handler returned unexpected body: got %v want %v", actual, expected)
+	}
+}
+
+func TestInsertPunctuations2(t *testing.T) {
 	expected := "どうしちゃった、のかな"
-	actual := insertPunctuations("どうしちゃったのかな", 1)
+	actual := insertPunctuations("どうしちゃったのかな", PunctuationConfig{[]string{"助動詞"}, 100})
+	t.Log(actual)
+	if actual != expected {
+		t.Errorf("handler returned unexpected body: got %v want %v", actual, expected)
+	}
+}
+func TestInsertPunctuations3(t *testing.T) {
+	expected := "どうしちゃった、のか、な、"
+	actual := insertPunctuations("どうしちゃったのかな", PunctuationConfig{[]string{"助動詞", "助詞"}, 100})
 	t.Log(actual)
 	if actual != expected {
 		t.Errorf("handler returned unexpected body: got %v want %v", actual, expected)

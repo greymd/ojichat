@@ -154,6 +154,7 @@ func combineMultiplePatterns(patterns []string, number int) string {
 // gimei から女性の名前を無作為に選定
 func randomFirstName() string {
 	name := gimei.NewFemale()
+	rand.Seed(time.Now().UnixNano())
 	switch rand.Intn(3) {
 	case 0:
 		return name.First.Kanji()
@@ -168,7 +169,7 @@ func randomNameSuffix() string {
 	rand.Seed(time.Now().UnixNano())
 	n := rand.Intn(100)
 	switch {
-	// たまに呼び捨て
+	// たまに呼び捨てにするおじさん
 	case n < 5:
 		return ""
 	// "時に「◯◯チャン」とカタカナにしてくるのも、おじさんの常套手段だ。"[3]
