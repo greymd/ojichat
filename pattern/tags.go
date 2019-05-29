@@ -19,6 +19,8 @@ var uniqTags = map[string][]string{
 		"俺",
 		"オレ",
 		"小生",
+		"オジサン",
+		"おじさん",
 	},
 	// 曜日
 	"{DAY_OF_WEEK}": []string{
@@ -29,6 +31,8 @@ var uniqTags = map[string][]string{
 		"お寿司🍣",
 		"イタリアン🍕🍝",
 		"パスタ🍝",
+		"バー🍷",
+		"ラーメン🍜",
 	},
 }
 
@@ -37,22 +41,56 @@ var flexTags = map[string][]string{
 	// ポジティブな表現の絵文字/顔文字
 	"{EMOJI_POS}": []string{
 		"❗",
+		"☺",
+		"💕",
+		"😍",
+		"♬",
+		"♫",
+		"☀",
+		"👊",
+		"😘",
 		"(^_^)",
+		"(^o^)",
+		"(^з<)",
 	},
 	// ネガティヴな表現の絵文字/顔文字
 	"{EMOJI_NEG}": []string{
-		"(T_T)",
 		"💦",
+		"💔",
+		"😿",
+		"🙀",
+		"😱",
+		"😰",
+		"(◎ ＿◎;)",
+		"(T_T)",
+		"^^;",
+		"(^_^;",
+		"(・_・;",
+		"(￣Д￣；；",
+		"(^▽^;)",
+		"(-_-;)",
 	},
 	// ニュートラルな感情を表す絵文字/顔文字
 	"{EMOJI_NEUT}": []string{
 		"(^^;;",
 		"💤",
 		"😴",
+		"🙂",
+		"🤑",
+		"✋",
+		"😪",
+		"🛌",
+		"😎",
+		"（￣▽￣）",
+		"(＃￣З￣)",
 	},
 	// 疑問を投げかけるときに利用される絵文字/顔文字
 	"{EMOJI_ASK}": []string{
 		"❓",
+		"❗❓",
+		"🤔",
+		"😜⁉️",
+		"（￣ー￣?）",
 	},
 }
 
@@ -60,10 +98,11 @@ var flexTags = map[string][]string{
 func ConvertTags(message, targetName string, emojiNumber int) string {
 	rand.Seed(time.Now().UnixNano())
 	if targetName != "" {
-		uniqTags["{TARGET_NAME}"] = []string{targetName}
+		uniqTags["{TARGET_NAME}"] = []string{targetName + randomNameSuffix()}
 	} else {
-		uniqTags["{TARGET_NAME}"] = []string{randomFirstName()}
+		uniqTags["{TARGET_NAME}"] = []string{randomFirstName() + randomNameSuffix()}
 	}
+
 	for tag, pat := range uniqTags {
 		content := pat[rand.Intn(len(pat))]
 		message = strings.ReplaceAll(message, tag, content)
@@ -100,4 +139,21 @@ func randomFirstName() string {
 		return name.First.Katakana()
 	}
 	return name.First.Hiragana()
+}
+
+// 「ちゃん」「チャン」などをランダムに返す
+func randomNameSuffix() string {
+	rand.Seed(time.Now().UnixNano())
+	n := rand.Intn(100)
+	switch {
+	// たまに呼び捨て
+	case n < 5:
+		return ""
+	// そこそこ「チャン」にする
+	case n < 40:
+		return "チャン"
+	// 多くの場合「ちゃん」にする
+	default:
+		return "ちゃん"
+	}
 }

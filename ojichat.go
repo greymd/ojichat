@@ -17,6 +17,8 @@ Options:
   -V, --version            Show version.
   -e <num>, --emoji=<num>  Maximum number of continuous Emojis [default: 4].`
 
+// TODO: --type おじさんタイプ (絵文字乱用, 顔文字乱用, 句読点, 若作り)
+
 func main() {
 	parser := &docopt.Parser{OptionsFirst: true}
 	args, _ := parser.ParseArgs(usage, nil, appVersion)
