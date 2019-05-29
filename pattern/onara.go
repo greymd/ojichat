@@ -71,7 +71,7 @@ var OnaraMessages = [][]string{
 		"{FIRST_PERSON}と一緒に今度ランチ、したいなぁ{EMOJI_POS}",
 	},
 	REPORTING: []string{
-		"今日は{LOCATION}30度だよ{EMOJI_NEG}暑いよ{EMOJI_NEG}ヤケドしないように気をつけて{EMOJI_POS}",
+		"今日は{LOCATION}28度だよ{EMOJI_NEG}暑いよ{EMOJI_NEG}ヤケドしないように気をつけないとね{EMOJI_POS}",
 		"{FIRST_PERSON}はさっきお風呂入ったよ{EMOJI_POS}{TARGET_NAME}とお風呂いきたいなー{EMOJI_POS}{NANCHATTE}",
 		"{FIRST_PERSON}は、近所に新しくできた{RESTAURANT}に行ってきたよ。味はまぁまぁだったかな{EMOJI_POS}",
 		"そういえば、昨日は例の{RESTAURANT}に行ってきたよ。結構いい雰囲気だったから、オススメだよ{EMOJI_POS}",
@@ -108,7 +108,7 @@ var OnaraMessages = [][]string{
 		"{FIRST_PERSON}は{TARGET_NAME}一筋だよ{EMOJI_NEUT}",
 		"よく頑張ったね{EMOJI_POS}えらいえらい{EMOJI_POS}",
 		"風邪ひかないようにね{EMOJI_POS}",
-		"寒けど、頑張ってね{EMOJI_NEUT}",
+		"寒いけど、頑張ってね{EMOJI_NEUT}",
 		"ゆっくり、身体休めてね{EMOJI_POS}オヤスミナサイ{EMOJI_NEUT}",
 		"天気悪いと気分もよくないよね{EMOJI_NEG}じゃあ今日は会社休んで{FIRST_PERSON}とデートしよう{EMOJI_POS}{NANCHATTE}",
 	},

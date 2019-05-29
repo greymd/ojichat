@@ -70,8 +70,8 @@ var uniqTags = map[string][]string{
 var flexTags = map[string][]string{
 	// ポジティブな表現の絵文字/顔文字
 	"{EMOJI_POS}": []string{
-		"😃♥",
-		"😃☀",
+		"😃♥ ",
+		"😃☀ ",
 		"😃",
 		"😃✋",
 		"❗",
@@ -79,7 +79,6 @@ var flexTags = map[string][]string{
 		"😆",
 		"😚",
 		"😘",
-		"",
 		"💕",
 		"💗",
 		"😍",
