@@ -21,7 +21,9 @@ Options:
 // TODO: --type おじさんタイプ (絵文字乱用, 顔文字乱用, 句読点, 若作り)
 
 func main() {
-	parser := &docopt.Parser{OptionsFirst: true}
+	parser := &docopt.Parser{
+		OptionsFirst: false,
+	}
 	args, _ := parser.ParseArgs(usage, nil, appVersion)
 	config := generator.Config{}
 	args.Bind(&config)
