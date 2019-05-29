@@ -49,7 +49,7 @@ var OnaraMessages = [][]string{
 		"{TARGET_NAME}、オハヨウ〜{EMOJI_POS}",
 		"{TARGET_NAME}、オハヨー{EMOJI_POS}",
 		"{TARGET_NAME}、お早う{EMOJI_POS}",
-		"{TARGET_NAME}、ヤッホー{EMOJI_POS}何してる{EMOJI_ASK}",
+		"{TARGET_NAME}、ヤッホー{EMOJI_POS}何してるのかい{EMOJI_ASK}",
 		"{TARGET_NAME}、今日もお仕事かな{EMOJI_POS}",
 		"ヤッホー{EMOJI_POS}{TARGET_NAME}、元気かな{EMOJI_ASK}",
 		"{TARGET_NAME}、会社をサボるなんて、悪い子だなぁ{EMOJI_POS}{NANCHATTE}",
@@ -87,10 +87,10 @@ var OnaraMessages = [][]string{
 		"早く会いたいな{EMOJI_POS}",
 	},
 	INVITATION: []string{
-		"今週の{DAY_OF_WEEK}曜日、仕事が早く終わりそうなんだけど、ご飯でもどう{EMOJI_ASK}",
+		"今週の{DAY_OF_WEEK}曜日、仕事が早く終わりそうなんだけど、ご飯でもどうかな{EMOJI_ASK}",
 		"突然だけど、{TARGET_NAME}は{RESTAURANT}好きカナ{EMOJI_ASK}{DAY_OF_WEEK}曜日ご飯行こうよ{EMOJI_POS}",
 		"そろそろご飯行こうよ{EMOJI_POS}ご要望とかはあるのかな{EMOJI_POS}{EMOJI_ASK}",
-		"{DAY_OF_WEEK}曜日、会社がお休みになったよ{EMOJI_POS}{TARGET_NAME}が都合どうカナ{EMOJI_ASK}デートどう{EMOJI_POS}{NANCHATTE}",
+		"{DAY_OF_WEEK}曜日、会社がお休みになったよ{EMOJI_POS}{TARGET_NAME}が都合どうかな{EMOJI_ASK}デートどう{EMOJI_POS}{NANCHATTE}",
 	},
 	PRAISING: []string{
 		"可愛すぎ{EMOJI_POS}",
