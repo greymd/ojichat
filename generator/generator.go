@@ -14,8 +14,8 @@ import (
 
 // PunctuationConfig ... 句読点挿入の設定
 type PunctuationConfig struct {
-	TargetHinshis []string
-	Rate          int
+	TargetHinshis []string // 句読点を後方に挿入する形態素の品詞
+	Rate          int      // 句読点を挿入する確率(百分率)
 }
 
 var pconfigs = []PunctuationConfig{
@@ -46,32 +46,60 @@ type Config struct {
 
 // Start ... おじさんの文言を生成
 func Start(config Config) (string, error) {
-	rand.Seed(time.Now().UnixNano())
-	selectedMessage := ""
-	// アルゴリズム (ONARA) を無作為に選定
-	selectedOnara := pattern.Onara[rand.Intn(len(pattern.Onara))]
 
-	// アルゴリズム内で表現されたそれぞれの感情に対応した文言を選定
-	for _, s := range selectedOnara {
-		selected := pattern.OnaraMessages[s]
-		selectedMessage += selected[rand.Intn(len(selected))]
-		// 挨拶以外の感情に関しては語尾を最大2文字までカタカナに変換するおじさんカタカナ活用を適用する
-		if s != pattern.GREEDING {
-			selectedMessage = katakanaKatsuyou(selectedMessage, rand.Intn(3))
-		}
-	}
+	// メッセージを選択する
+	selectedMessage := selectMessage()
 
-	// タグを変換
+	// メッセージに含まれるタグを変換
 	selectedMessage = pattern.ConvertTags(selectedMessage, config.TargetName, config.EmojiNum)
 
 	level := config.PunctiuationLebel
 	if level < 0 || level > 3 {
 		return "", fmt.Errorf("句読点挿入頻度レベルが不正です: %v", level)
 	}
-	// 句読点レベルに応じて、おじさんがよくやる句読点を適宜挿入する
+	// 句読点レベルに応じて、おじさんのように文中に句読点を適切に挿入する
 	result := insertPunctuations(selectedMessage, pconfigs[level])
 
 	return result, nil
+}
+
+func selectMessage() string {
+	rand.Seed(time.Now().UnixNano())
+	selectedMessage := ""
+	// アルゴリズム (ONARA) を無作為に選定
+	selectedOnara := pattern.Onara[rand.Intn(len(pattern.Onara))]
+
+	// 重複した表現を避けるためのブラックリストを感情ごとに用意
+	blacklist := map[pattern.OjisanEmotion]map[int]bool{}
+	for i := range pattern.OnaraMessages {
+		blacklist[pattern.OjisanEmotion(i)] = make(map[int]bool)
+	}
+
+	// アルゴリズム内で表現されたそれぞれの感情に対応した文言を選定
+	for _, s := range selectedOnara {
+		selected := pattern.OnaraMessages[s]
+		index := 0
+		for {
+			index = rand.Intn(len(selected))
+			if !blacklist[s][index] {
+				blacklist[s][index] = true
+				selectedMessage += selected[index]
+				break
+			}
+			// 既にすべての表現を使い切っていたら諦める
+			if len(blacklist[s]) >= len(selected) {
+				blacklist[s][index] = true
+				selectedMessage += selected[index]
+				break
+			}
+		}
+		// 挨拶以外の感情に関しては語尾を最大2文字までカタカナに変換するおじさんカタカナ活用を適用する
+		if s != pattern.GREEDING {
+			selectedMessage = katakanaKatsuyou(selectedMessage, rand.Intn(3))
+		}
+	}
+
+	return selectedMessage
 }
 
 // カタカナ活用を適用する
@@ -95,6 +123,7 @@ func insertPunctuations(message string, config PunctuationConfig) string {
 	}
 	rand.Seed(time.Now().UnixNano())
 	result := ""
+	// おじさんの文句の形態素解析に使われるなんて可哀そうなライブラリだな
 	t := tokenizer.New()
 	tokens := t.Tokenize(message)
 	for _, token := range tokens {
