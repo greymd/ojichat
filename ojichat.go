@@ -21,7 +21,7 @@ Options:
   -h, --help      ヘルプを表示.
   -V, --version   バージョンを表示.
   -e <number>     絵文字/顔文字の最大連続数 [default: 4].
-	-p <level>      句読点挿入頻度レベル [min:0, max:3] [default: 0].`
+  -p <level>      句読点挿入頻度レベル [min:0, max:3] [default: 0].`
 
 // TODO: --type おじさんタイプ (絵文字乱用, 顔文字乱用, 句読点, 若作り)
 

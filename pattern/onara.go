@@ -24,8 +24,7 @@ const (
 
 // Onara ... Ojisan NArikiri Randomized Algorhytm: おじさんなりきり乱択アルゴリズム
 // おじさんの感情表現の順番を表す。
-// 近年の研究により[1]おじさんなりきるための効果的なアルゴリズムが提唱されている。
-// [1] https://kogusoku.com/archives/2939
+// 近年の研究により (README.md 参考文献[1]) おじさんなりきるための効果的なアルゴリズムが提唱されている。
 var Onara = [][]OjisanEmotion{
 	// GQS パターン
 	[]OjisanEmotion{GREEDING, QUESTION, SYMPATHY},
@@ -42,6 +41,7 @@ var Onara = [][]OjisanEmotion{
 }
 
 // OnaraMessages .. メッセージのテンプレート
+// メッセージ中の{TARGET_NAME} などのタグについては tags.go 参照
 var OnaraMessages = [][]string{
 	GREEDING: []string{
 		"{TARGET_NAME}{EMOJI_POS}",
