@@ -37,3 +37,12 @@ func TestKatakanaKatsuyou4(t *testing.T) {
 		t.Errorf("handler returned unexpected body: got %v want %v", actual, expected)
 	}
 }
+
+func TestInsertPunctuations(t *testing.T) {
+	expected := "どうしちゃった、のかな"
+	actual := insertPunctuations("どうしちゃったのかな", 1)
+	t.Log(actual)
+	if actual != expected {
+		t.Errorf("handler returned unexpected body: got %v want %v", actual, expected)
+	}
+}

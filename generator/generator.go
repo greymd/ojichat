@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/greymd/ojichat/pattern"
+	"github.com/ikawaha/kagome/tokenizer"
 	"github.com/miiton/kanaconv"
 )
 
@@ -36,13 +37,15 @@ func Start(config Config) (string, error) {
 	}
 
 	// タグを変換
-	result := pattern.ConvertTags(selectedMessage, config.TargetName, config.EmojiNum)
+	selectedMessage = pattern.ConvertTags(selectedMessage, config.TargetName, config.EmojiNum)
 
-	// TODO: 適宜句読点を入れたい
+	// 句読点レベルに応じて、おじさんがよくやる句読点を適宜挿入する
+	result := insertPunctuations(selectedMessage, config.PunctiuationLebel)
 
 	return result, nil
 }
 
+// カタカナ活用を適用する
 func katakanaKatsuyou(message string, number int) string {
 	var reg *regexp.Regexp
 	if number < 1 {
@@ -54,4 +57,27 @@ func katakanaKatsuyou(message string, number int) string {
 		return message
 	}
 	return string(hiraganas[1]) + kanaconv.HiraganaToKatakana(string(hiraganas[2])) + string(hiraganas[3])
+}
+
+// 句読点レベルに応じ、助詞、助動詞の後に句読点を挿入する
+func insertPunctuations(message string, level int) string {
+	if level == 0 {
+		return message
+	}
+	result := ""
+	t := tokenizer.New()
+	tokens := t.Tokenize(message)
+	for _, token := range tokens {
+		if token.Class == tokenizer.DUMMY {
+			continue
+		}
+		features := token.Features()
+		switch features[0] {
+		case "助動詞":
+			result += token.Surface + "、"
+		default:
+			result += token.Surface
+		}
+	}
+	return result
 }

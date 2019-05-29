@@ -8,6 +8,12 @@ import (
 	"github.com/mattn/go-gimei"
 )
 
+/*
+## 参考文献
+[3] 女子高生「おじさんLINEごっこ」の実例に学ぶキモがられる態度とは | ニュース3面鏡 | ダイヤモンド・オンライン
+https://diamond.jp/articles/-/143111?page=2
+*/
+
 // 文章中一種類に統一されるタグ
 var uniqTags = map[string][]string{
 	// 対象の名前
@@ -38,11 +44,12 @@ var uniqTags = map[string][]string{
 		"バー🍷",
 		"ラーメン🍜",
 	},
-	// ナンチャッテ
+	// 下ネタの後は「ナンチャッテ」「冗談（笑）」を使う[3]
 	"{NANCHATTE}": []string{
 		"ナンチャッテ{EMOJI_POS}",
 		"なんちゃって{EMOJI_POS}",
 		"なんてね{EMOJI_POS}",
+		"冗談{EMOJI_POS}",
 		"", // おじさんはたまに本気
 	},
 }
@@ -64,6 +71,7 @@ var flexTags = map[string][]string{
 		"(^_^)",
 		"(^o^)",
 		"(^з<)",
+		"（笑）",
 	},
 	// ネガティヴな表現の絵文字/顔文字
 	"{EMOJI_NEG}": []string{
@@ -163,7 +171,7 @@ func randomNameSuffix() string {
 	// たまに呼び捨て
 	case n < 5:
 		return ""
-	// そこそこ「チャン」にする
+	// "時に「◯◯チャン」とカタカナにしてくるのも、おじさんの常套手段だ。"[3]
 	case n < 40:
 		return "チャン"
 	// 多くの場合「ちゃん」にする
