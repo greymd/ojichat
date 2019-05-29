@@ -26,6 +26,10 @@ var uniqTags = map[string][]string{
 	"{DAY_OF_WEEK}": []string{
 		"月", "火", "水", "木", "金", "土", "日",
 	},
+	// 地名
+	"{LOCATION}": []string{
+		"愛知", "青森", "秋田", "石川", "茨城", "岩手", "愛媛", "大分", "大阪", "岡山", "沖縄", "香川", "鹿児島", "神奈川", "岐阜", "京都", "熊本", "群馬", "高知", "埼玉", "佐賀", "滋賀", "静岡", "島根", "千葉", "東京", "徳島", "栃木", "鳥取", "富山", "長崎", "長野", "奈良", "新潟", "兵庫", "広島", "福井", "福岡", "福島", "北海道", "三重", "宮城", "宮崎", "山形", "山口", "山梨", "和歌山",
+	},
 	// 食べ物
 	"{FOOD}": []string{
 		"お寿司🍣",
@@ -33,6 +37,13 @@ var uniqTags = map[string][]string{
 		"パスタ🍝",
 		"バー🍷",
 		"ラーメン🍜",
+	},
+	// ナンチャッテ
+	"{NANCHATTE}": []string{
+		"ナンチャッテ{EMOJI_POS}",
+		"なんちゃって{EMOJI_POS}",
+		"なんてね{EMOJI_POS}",
+		"", // おじさんはたまに本気
 	},
 }
 
@@ -42,6 +53,7 @@ var flexTags = map[string][]string{
 	"{EMOJI_POS}": []string{
 		"❗",
 		"☺",
+		"😄",
 		"💕",
 		"😍",
 		"♬",
@@ -98,8 +110,10 @@ var flexTags = map[string][]string{
 func ConvertTags(message, targetName string, emojiNumber int) string {
 	rand.Seed(time.Now().UnixNano())
 	if targetName != "" {
+		// 引数として名前が存在した場合にはそれを使う
 		uniqTags["{TARGET_NAME}"] = []string{targetName + randomNameSuffix()}
 	} else {
+		// 指定がない場合には gimei から選定
 		uniqTags["{TARGET_NAME}"] = []string{randomFirstName() + randomNameSuffix()}
 	}
 
@@ -111,7 +125,7 @@ func ConvertTags(message, targetName string, emojiNumber int) string {
 	for tag, pat := range flexTags {
 		n := strings.Count(message, tag)
 		for i := 0; i < n; i++ {
-			content := combineMultiplePatterns(pat, emojiNumber)
+			content := combineMultiplePatterns(pat, rand.Intn(emojiNumber)+1)
 			// タグを置換
 			message = strings.Replace(message, tag, content, 1)
 		}
@@ -119,20 +133,20 @@ func ConvertTags(message, targetName string, emojiNumber int) string {
 	return message
 }
 
-// combineMultiplePatterns: 複数のパターンをランダムにつなげる
+// combineMultiplePatterns: 複数のパターンをnumber分ランダムにつなげる
 func combineMultiplePatterns(patterns []string, number int) string {
-	rand.Seed(time.Now().UnixNano())
 	result := ""
-	for i := 0; i < rand.Intn(number+1); i++ {
+	// TODO: 同じパターンは使い回さないようにしたほうが自然か？
+	for i := 0; i < number; i++ {
 		result += patterns[rand.Intn(len(patterns))]
 	}
 	return result
 }
 
+// gimei から女性の名前を無作為に選定
 func randomFirstName() string {
-	rand.Seed(time.Now().UnixNano())
 	name := gimei.NewFemale()
-	switch rand.Intn(2) {
+	switch rand.Intn(3) {
 	case 0:
 		return name.First.Kanji()
 	case 1:

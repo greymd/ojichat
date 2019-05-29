@@ -12,8 +12,9 @@ import (
 
 // Config ... main で受け取られる引数、オプション
 type Config struct {
-	TargetName string `docopt:"<name>"`
-	EmojiNum   int    `docopt:"--emoji"`
+	TargetName        string `docopt:"<name>"`
+	EmojiNum          int    `docopt:"--emoji"`
+	PunctiuationLebel int    `docopt:"--punctuation"`
 }
 
 // Start ... おじさんの文言を生成
@@ -23,7 +24,7 @@ func Start(config Config) (string, error) {
 	// アルゴリズム (ONARA) を無作為に選定
 	selectedOnara := pattern.Onara[rand.Intn(len(pattern.Onara))]
 
-	// アルゴリズムそれぞれの感情に対応した文言を選定
+	// アルゴリズム内で表現されたそれぞれの感情に対応した文言を選定
 	for _, s := range selectedOnara {
 		selected := pattern.OnaraMessages[s]
 		selectedMessage += selected[rand.Intn(len(selected))]
@@ -36,6 +37,8 @@ func Start(config Config) (string, error) {
 
 	// タグを変換
 	result := pattern.ConvertTags(selectedMessage, config.TargetName, config.EmojiNum)
+
+	// TODO: 適宜句読点を入れたい
 
 	return result, nil
 }
