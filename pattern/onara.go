@@ -56,11 +56,11 @@ var OnaraMessages = [][]string{
 		"おはよー！チュッ{EMOJI_POS}",
 		"{TARGET_NAME}、久しぶり{EMOJI_POS}",
 		"あれ{EMOJI_NEG}{TARGET_NAME}、朝と夜間違えたのかな{EMOJI_ASK}{FIRST_PERSON}はまだ起きてますよ〜{EMOJI_POS}",
-		"{TARGET_NAME}、そっちも{WETHER}なのかな{EMOJI_ASK}",
+		"{TARGET_NAME}、そっちも{WEATHER}なのかな{EMOJI_ASK}",
 	},
 	QUESTION: []string{
 		"今日はどんな一日だった{EMOJI_ASK}",
-		"今日は{WETHER}だけどなにするのかな{EMOJI_ASK}",
+		"今日は{WEATHER}だけどなにするのかな{EMOJI_ASK}",
 		"{RESTAURANT}好きかな{EMOJI_ASK}",
 		"{TARGET_NAME}も今日も2時までお仕事かな{EMOJI_ASK}",
 		"ちょっと電話できるかな{EMOJI_ASK}",
