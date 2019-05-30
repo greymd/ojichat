@@ -48,7 +48,7 @@ var uniqTags = map[string][]string{
 		"パスタ🍝",
 	},
 	// 天気
-	"{WETHER}": []string{
+	"{WEATHER}": []string{
 		"曇り",
 		"晴れ",
 		"快晴",
