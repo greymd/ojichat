@@ -4,8 +4,8 @@ package pattern
 type OjisanEmotion int
 
 const (
-	// GREEDING ... 挨拶
-	GREEDING OjisanEmotion = iota
+	// GREETING ... 挨拶
+	GREETING OjisanEmotion = iota
 	// QUESTION ... 疑問
 	QUESTION
 	// REPORTING ... 報告
@@ -27,13 +27,13 @@ const (
 // 近年の研究により (README.md 参考文献[1]) おじさんなりきるための効果的なアルゴリズムが提唱されている。
 var Onara = [][]OjisanEmotion{
 	// GQS パターン
-	[]OjisanEmotion{GREEDING, QUESTION, SYMPATHY},
+	[]OjisanEmotion{GREETING, QUESTION, SYMPATHY},
 	// GR パターン
-	[]OjisanEmotion{GREEDING, REPORTING},
+	[]OjisanEmotion{GREETING, REPORTING},
 	// GC パターン
-	[]OjisanEmotion{GREEDING, CHEERING},
+	[]OjisanEmotion{GREETING, CHEERING},
 	// GQI パターン
-	[]OjisanEmotion{GREEDING, QUESTION, INVITATION},
+	[]OjisanEmotion{GREETING, QUESTION, INVITATION},
 	// TODO: PA パターン (サンプルが少ないので無効中)
 	// []OjisanEmotion{PRAISING, ADMIRATION},
 	// S パターン (短いので SS にする)
@@ -43,7 +43,7 @@ var Onara = [][]OjisanEmotion{
 // OnaraMessages .. メッセージのテンプレート
 // メッセージ中の{TARGET_NAME} などのタグについては tags.go 参照
 var OnaraMessages = [][]string{
-	GREEDING: []string{
+	GREETING: []string{
 		"{TARGET_NAME}{EMOJI_POS}",
 		"{TARGET_NAME}、お疲れ様〜{EMOJI_POS}",
 		"{TARGET_NAME}、オハヨウ〜{EMOJI_POS}",
