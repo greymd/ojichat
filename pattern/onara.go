@@ -47,6 +47,8 @@ var OnaraMessages = [][]string{
 		"{TARGET_NAME}{EMOJI_POS}",
 		"{TARGET_NAME}、お疲れ様〜{EMOJI_POS}",
 		"{TARGET_NAME}、オハヨウ〜{EMOJI_POS}",
+		"{TARGET_NAME}、おっは〜{EMOJI_POS}",
+		"{TARGET_NAME}、オッハー{EMOJI_POS}",
 		"{TARGET_NAME}、オハヨー{EMOJI_POS}",
 		"{TARGET_NAME}、お早う{EMOJI_POS}",
 		"{TARGET_NAME}、ヤッホー{EMOJI_POS}何してるのかい{EMOJI_ASK}",
@@ -69,6 +71,7 @@ var OnaraMessages = [][]string{
 		"たまには{FIRST_PERSON}にも連絡ほしいな{EMOJI_POS}",
 		"{FIRST_PERSON}明日も仕事だけどなかなか寝れないよ〜{EMOJI_NEG}早く{TARGET_NAME}に会いたいよ{EMOJI_NEG}{NANCHATTE}",
 		"{FIRST_PERSON}と一緒に今度ランチ、したいなぁ{EMOJI_POS}",
+		"{FIRST_PERSON}と一緒に今度エッチ、したいなぁ{EMOJI_POS}",
 	},
 	REPORTING: []string{
 		"今日は{LOCATION}28度だよ{EMOJI_NEG}暑いよ{EMOJI_NEG}ヤケドしないように気をつけないとね{EMOJI_POS}",
@@ -111,5 +114,6 @@ var OnaraMessages = [][]string{
 		"寒いけど、頑張ってね{EMOJI_NEUT}",
 		"ゆっくり、身体休めてね{EMOJI_POS}オヤスミナサイ{EMOJI_NEUT}",
 		"天気悪いと気分もよくないよね{EMOJI_NEG}じゃあ今日は会社休んで{FIRST_PERSON}とデートしよう{EMOJI_POS}{NANCHATTE}",
+		"今日は天気が悪いね{EMOJI_NEG}こんな日は会社休んで{FIRST_PERSON}とホテルに行こうよ{EMOJI_POS}{NANCHATTE}",
 	},
 }

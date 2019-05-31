@@ -16,10 +16,13 @@ var uniqTags = map[string][]string{
 	"{FIRST_PERSON}": []string{
 		"僕",
 		"ボク",
+		"ﾎﾞｸ",
 		"俺",
 		"オレ",
+		"ｵﾚ",
 		"小生",
 		"オジサン",
+		"ｵｼﾞｻﾝ",
 		"おじさん",
 	},
 	// 曜日
@@ -46,6 +49,8 @@ var uniqTags = map[string][]string{
 		"きんぴらごぼう",
 		"ピッツァ🍕",
 		"パスタ🍝",
+		"スイーツ🍮",
+		"ケーキ🎂",
 	},
 	// 天気
 	"{WEATHER}": []string{
@@ -58,6 +63,7 @@ var uniqTags = map[string][]string{
 	},
 	// 下ネタの後は「ナンチャッテ」「冗談（笑）」を使う(README.md 参考文献[2])
 	"{NANCHATTE}": []string{
+		"ﾅﾝﾁｬｯﾃ{EMOJI_POS}",
 		"ナンチャッテ{EMOJI_POS}",
 		"なんちゃって{EMOJI_POS}",
 		"なんてね{EMOJI_POS}",
@@ -190,8 +196,11 @@ func randomNameSuffix() string {
 	case n < 5:
 		return ""
 	// "時に「◯◯チャン」とカタカナにしてくるのも、おじさんの常套手段だ。"(README.md 参考文献[2])
-	case n < 40:
+	case n < 20:
 		return "チャン"
+	// "「〇〇チャン」をさらに半角で表現する、そんなおじさんもいる"
+	case n < 40:
+		return "ﾁｬﾝ"
 	// 多くの場合「ちゃん」にする
 	default:
 		return "ちゃん"
