@@ -75,7 +75,7 @@ $ ojichat
 ### 使い方
 オプション等はすべて互換性があります。
 
-#### ojichat docker cli tool ~起動~
+#### ojichat docker cli tool 起動
 
 - `ojichat` と同じ動きをする
 ```
