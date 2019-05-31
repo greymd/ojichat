@@ -10,8 +10,8 @@
   version = "0.6.2"
 
 [[projects]]
-  digest = "1:77e76597daf43acf8b985acb8d3b67cbe39cc63b85bf4db88ac3dadd0a8aabc8"
-  name = "github.com/ikawaha/kagome"
+  digest = "1:8f5f5769bffa18d62a9b4cdedc6927bf05c6738ef4ff0f7116e44d800971a30f"
+  name = "github.com/ikawaha/kagome.ipadic"
   packages = [
     "internal/da",
     "internal/dic",
@@ -20,8 +20,8 @@
     "tokenizer",
   ]
   pruneopts = "UT"
-  revision = "d76ce24c16d24bc8968d32681d92db4d7ff6bd2d"
-  version = "v1.9.0"
+  revision = "6a236696f3137ef6b532b20b6ae6b17be67cca07"
+  version = "v1.1.0"
 
 [[projects]]
   branch = "master"
@@ -60,7 +60,7 @@
   analyzer-version = 1
   input-imports = [
     "github.com/docopt/docopt-go",
-    "github.com/ikawaha/kagome/tokenizer",
+    "github.com/ikawaha/kagome.ipadic/tokenizer",
     "github.com/mattn/go-gimei",
     "github.com/miiton/kanaconv",
   ]
