@@ -163,9 +163,16 @@ func ConvertTags(message, targetName string, emojiNumber int) string {
 // combineMultiplePatterns: 複数のパターンをnumber分ランダムにつなげる
 func combineMultiplePatterns(patterns []string, number int) string {
 	result := ""
-	// TODO: 同じパターンは使い回さないようにしたほうが自然か？
-	for i := 0; i < number; i++ {
-		result += patterns[rand.Intn(len(patterns))]
+	if number <= len(patterns) {
+		for i := 0; i < number; i++ {
+			index := rand.Intn(len(patterns) - i)
+			result += patterns[index]
+			patterns[index], patterns[len(patterns)-1-i] = patterns[len(patterns)-1-i], patterns[index]
+		}
+	} else {
+		for i := 0; i < number; i++ {
+			result += patterns[rand.Intn(len(patterns))]
+		}
 	}
 	return result
 }
