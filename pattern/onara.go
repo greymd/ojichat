@@ -104,6 +104,8 @@ var OnaraMessages = [][]string{
 		"可愛すぎ{EMOJI_POS}",
 		"エッチだなぁもう{EMOJI_POS}",
 		"おっぱいがおっきいね{EMOJI_POS}",
+		"おしりがおっきいね{EMOJI_POS}",
+		"ふとももがきれいだね{EMOJI_POS}",
 	},
 	ADMIRATION: []string{
 		"今から寝ようと思ってたのに、目が覚めちゃったよ{EMOJI_POS}どうしてくれるんだ{EMOJI_POS}",
