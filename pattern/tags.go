@@ -16,10 +16,13 @@ var uniqTags = map[string][]string{
 	"{FIRST_PERSON}": []string{
 		"僕",
 		"ボク",
+		"ﾎﾞｸ",
 		"俺",
 		"オレ",
+		"ｵﾚ",
 		"小生",
 		"オジサン",
+		"ｵｼﾞｻﾝ",
 		"おじさん",
 		"オイラ",
 	},
@@ -47,6 +50,8 @@ var uniqTags = map[string][]string{
 		"きんぴらごぼう",
 		"ピッツァ🍕",
 		"パスタ🍝",
+		"スイーツ🍮",
+		"ケーキ🎂",
 	},
 	// 天気
 	"{WEATHER}": []string{
@@ -60,6 +65,7 @@ var uniqTags = map[string][]string{
 	},
 	// 下ネタの後は「ナンチャッテ」「冗談（笑）」を使う(README.md 参考文献[2])
 	"{NANCHATTE}": []string{
+		"ﾅﾝﾁｬｯﾃ{EMOJI_POS}",
 		"ナンチャッテ{EMOJI_POS}",
 		"なんちゃって{EMOJI_POS}",
 		"なんてね{EMOJI_POS}",
@@ -67,6 +73,18 @@ var uniqTags = map[string][]string{
 		"", // おじさんはたまに本気
 	},
 	// TODO: 「かな？」と「かい？」の語尾の違いも組み込んでも良いかもしれない
+	// おじさんの欲望の地、ホテル
+	"{HOTEL}": []string{
+		"ホテル🏨",
+		"ホテル🏩",
+		"旅館",
+	},
+	// デートの種類
+	"{DATE}": []string{
+		"デート❤",
+		"カラオケ🎤",
+		"ドライブ🚗",
+	},
 }
 
 // 文章中複数回変更&繰り返されるタグ
@@ -199,8 +217,11 @@ func randomNameSuffix() string {
 	case n < 5:
 		return ""
 	// "時に「◯◯チャン」とカタカナにしてくるのも、おじさんの常套手段だ。"(README.md 参考文献[2])
-	case n < 40:
+	case n < 20:
 		return "チャン"
+	// "「〇〇チャン」をさらに半角で表現する、そんなおじさんもいる"
+	case n < 40:
+		return "ﾁｬﾝ"
 	// 多くの場合「ちゃん」にする
 	default:
 		return "ちゃん"
