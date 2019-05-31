@@ -71,11 +71,11 @@ var OnaraMessages = [][]string{
 		"たまには{FIRST_PERSON}にも連絡ほしいな{EMOJI_POS}",
 		"{FIRST_PERSON}明日も仕事だけどなかなか寝れないよ〜{EMOJI_NEG}早く{TARGET_NAME}に会いたいよ{EMOJI_NEG}{NANCHATTE}",
 		"{FIRST_PERSON}と一緒に今度ランチ、したいなぁ{EMOJI_POS}",
-		"{FIRST_PERSON}と今度エッチ、したいなぁ{EMOJI_POS}",
+		"{FIRST_PERSON}と今度イチャイチャ、したいなぁ{EMOJI_POS}",
 	},
 	REPORTING: []string{
 		"今日は{LOCATION}28度だよ{EMOJI_NEG}暑いよ{EMOJI_NEG}ヤケドしないように気をつけないとね{EMOJI_POS}",
-		"今日は{LOCATION}30度超えるんだって{EMOJI_NEG}暑いね〜{EMOJI_NEG}こんな日は{FIRST_PERSON}と裸のお付き合い{EMOJI_POS}しよ{EMOJI_POS}",
+		"今日は{LOCATION}30度超えるんだって{EMOJI_NEG}暑いね〜{EMOJI_NEG}こんな日は{FIRST_PERSON}と裸のお付き合い{EMOJI_POS}しよ{EMOJI_POS}{NANCHATTE}",
 		"{FIRST_PERSON}はさっきお風呂入ったよ{EMOJI_POS}{TARGET_NAME}とお風呂いきたいなー{EMOJI_POS}{NANCHATTE}",
 		"{FIRST_PERSON}は、近所に新しくできた{RESTAURANT}に行ってきたよ。味はまぁまぁだったかな{EMOJI_POS}",
 		"そういえば、昨日は例の{RESTAURANT}に行ってきたよ。結構いい雰囲気だったから、オススメだよ{EMOJI_POS}",
@@ -102,10 +102,10 @@ var OnaraMessages = [][]string{
 	},
 	PRAISING: []string{
 		"可愛すぎ{EMOJI_POS}",
-		"エッチだなぁもう{EMOJI_POS}",
-		"おっぱいがおっきいね{EMOJI_POS}",
-		"おしりがおっきいね{EMOJI_POS}",
-		"ふとももがきれいだね{EMOJI_POS}",
+		"愛しいなぁもう{EMOJI_POS}",
+		"スタイルがいいね{EMOJI_POS}",
+		"キラキラ{EMOJI_POS}してるね{EMOJI_POS}",
+		"お肌がきれい✨だね{EMOJI_POS}",
 	},
 	ADMIRATION: []string{
 		"今から寝ようと思ってたのに、目が覚めちゃったよ{EMOJI_POS}どうしてくれるんだ{EMOJI_POS}",
