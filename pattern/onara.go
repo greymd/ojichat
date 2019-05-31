@@ -71,7 +71,7 @@ var OnaraMessages = [][]string{
 		"たまには{FIRST_PERSON}にも連絡ほしいな{EMOJI_POS}",
 		"{FIRST_PERSON}明日も仕事だけどなかなか寝れないよ〜{EMOJI_NEG}早く{TARGET_NAME}に会いたいよ{EMOJI_NEG}{NANCHATTE}",
 		"{FIRST_PERSON}と一緒に今度ランチ、したいなぁ{EMOJI_POS}",
-		"{FIRST_PERSON}と一緒に今度エッチ、したいなぁ{EMOJI_POS}",
+		"{FIRST_PERSON}と今度エッチ、したいなぁ{EMOJI_POS}",
 	},
 	REPORTING: []string{
 		"今日は{LOCATION}28度だよ{EMOJI_NEG}暑いよ{EMOJI_NEG}ヤケドしないように気をつけないとね{EMOJI_POS}",
@@ -100,6 +100,7 @@ var OnaraMessages = [][]string{
 	},
 	ADMIRATION: []string{
 		"今から寝ようと思ってたのに、目が覚めちゃったよ{EMOJI_POS}どうしてくれるんだ{EMOJI_POS}",
+		"可愛すぎだよ〜{EMOJI_POS}マッタクもう{EMOJI_POS}",
 	},
 	SYMPATHY: []string{
 		"{TARGET_NAME}{EMOJI_POS}元気、ないのかなぁ{EMOJI_NEG}大丈夫{EMOJI_ASK}",
