@@ -24,6 +24,7 @@ var uniqTags = map[string][]string{
 		"オジサン",
 		"ｵｼﾞｻﾝ",
 		"おじさん",
+		"オイラ",
 	},
 	// 曜日
 	"{DAY_OF_WEEK}": []string{
@@ -60,6 +61,7 @@ var uniqTags = map[string][]string{
 		"大雨",
 		"雨",
 		"雪",
+		"台風🌀",
 	},
 	// 下ネタの後は「ナンチャッテ」「冗談（笑）」を使う(README.md 参考文献[2])
 	"{NANCHATTE}": []string{
@@ -179,9 +181,16 @@ func ConvertTags(message, targetName string, emojiNumber int) string {
 // combineMultiplePatterns: 複数のパターンをnumber分ランダムにつなげる
 func combineMultiplePatterns(patterns []string, number int) string {
 	result := ""
-	// TODO: 同じパターンは使い回さないようにしたほうが自然か？
-	for i := 0; i < number; i++ {
-		result += patterns[rand.Intn(len(patterns))]
+	if number <= len(patterns) {
+		for i := 0; i < number; i++ {
+			index := rand.Intn(len(patterns) - i)
+			result += patterns[index]
+			patterns[index], patterns[len(patterns)-1-i] = patterns[len(patterns)-1-i], patterns[index]
+		}
+	} else {
+		for i := 0; i < number; i++ {
+			result += patterns[rand.Intn(len(patterns))]
+		}
 	}
 	return result
 }

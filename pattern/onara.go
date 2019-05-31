@@ -70,8 +70,8 @@ var OnaraMessages = [][]string{
 		"今日はもう寝ちゃったのかな{EMOJI_NEUT}",
 		"たまには{FIRST_PERSON}にも連絡ほしいな{EMOJI_POS}",
 		"{FIRST_PERSON}明日も仕事だけどなかなか寝れないよ〜{EMOJI_NEG}早く{TARGET_NAME}に会いたいよ{EMOJI_NEG}{NANCHATTE}",
-		"{FIRST_PERSON}と一緒に今度ランチ、したいなぁ{EMOJI_POS}",
-		"{FIRST_PERSON}と今度イチャイチャ、したいなぁ{EMOJI_POS}",
+		"{TARGET_NAME}と一緒に今度ランチ、したいなぁ{EMOJI_POS}",
+		"{TARGET_NAME}と今度イチャイチャ、したいなぁ{EMOJI_POS}",
 	},
 	REPORTING: []string{
 		"今日は{LOCATION}28度だよ{EMOJI_NEG}暑いよ{EMOJI_NEG}ヤケドしないように気をつけないとね{EMOJI_POS}",

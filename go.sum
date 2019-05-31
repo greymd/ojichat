@@ -1,0 +1,13 @@
+github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815 h1:bWDMxwH3px2JBh6AyO7hdCn/PkvCZXii8TGj7sbtEbQ=
+github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815/go.mod h1:WwZ+bS3ebgob9U8Nd0kOddGdZWjyMGR8Wziv+TBNwSE=
+github.com/ikawaha/kagome.ipadic v1.1.0 h1:9hzwhcklEL4Cmp+lM9HQfmDg2nhB43Fe1n9UUY6mifY=
+github.com/ikawaha/kagome.ipadic v1.1.0/go.mod h1:DPSBbU0czaJhAb/5uKQZHMc9MTVRpDugJfX+HddPHHg=
+github.com/jessevdk/go-assets v0.0.0-20160921144138-4f4301a06e15 h1:cW/amwGEJK5MSKntPXRjX4dxs/nGxGT8gXKIsKFmHGc=
+github.com/jessevdk/go-assets v0.0.0-20160921144138-4f4301a06e15/go.mod h1:Fdm/oWRW+CH8PRbLntksCNtmcCBximKPkVQYvmMl80k=
+github.com/mattn/go-gimei v0.0.0-20190131075016-6a4b8c0a2634 h1:rQws1wZBzK8WU0PdQtlpk/T6U/S1jtLotE71QSBFV1U=
+github.com/mattn/go-gimei v0.0.0-20190131075016-6a4b8c0a2634/go.mod h1:4ggHGpvxbte2tfR5dSMcNG6EjEETJRJZfMnvdI7naK8=
+github.com/miiton/kanaconv v0.0.0-20190113030651-37b47860541b h1:eMbA1u9vml+nN2e0+bJJb6APiRiw3Tf+VgvfCDWnbbc=
+github.com/miiton/kanaconv v0.0.0-20190113030651-37b47860541b/go.mod h1:QrxJBSmXXUCbXp+bDg28x8dvOPMSakVnREovgqvgtP4=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
+gopkg.in/yaml.v2 v2.2.2 h1:ZCJp+EgiOT7lHqUV2J862kp8Qj64Jo6az82+3Td9dZw=
+gopkg.in/yaml.v2 v2.2.2/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=
