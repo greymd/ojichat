@@ -21,6 +21,7 @@ var uniqTags = map[string][]string{
 		"小生",
 		"オジサン",
 		"おじさん",
+		"オイラ",
 	},
 	// 曜日
 	"{DAY_OF_WEEK}": []string{
