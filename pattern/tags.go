@@ -55,6 +55,7 @@ var uniqTags = map[string][]string{
 		"大雨",
 		"雨",
 		"雪",
+		"台風🌀",
 	},
 	// 下ネタの後は「ナンチャッテ」「冗談（笑）」を使う(README.md 参考文献[2])
 	"{NANCHATTE}": []string{
