@@ -94,7 +94,7 @@ var OnaraMessages = [][]string{
 		"今週の{DAY_OF_WEEK}曜日、仕事が早く終わりそうなんだけど、ご飯でもどうかな{EMOJI_ASK}",
 		"突然だけど、{TARGET_NAME}は{RESTAURANT}好きカナ{EMOJI_ASK}{DAY_OF_WEEK}曜日ご飯行こうよ{EMOJI_POS}",
 		"そろそろご飯行こうよ{EMOJI_POS}ご要望とかはあるのかな{EMOJI_POS}{EMOJI_ASK}",
-		"{DAY_OF_WEEK}曜日、会社がお休みになったよ{EMOJI_POS}{TARGET_NAME}が都合どうかな{EMOJI_ASK}{DATE}どう{EMOJI_POS}{NANCHATTE}",
+		"{DAY_OF_WEEK}曜日、会社がお休みになったよ{EMOJI_POS}{TARGET_NAME}は都合どうかな{EMOJI_ASK}{DATE}どう{EMOJI_POS}{NANCHATTE}",
 		"天気悪いと気分もよくないよね{EMOJI_NEG}じゃあ今日は会社休んで{FIRST_PERSON}と{DATE}しよう{EMOJI_POS}{NANCHATTE}",
 		"今日は天気が悪いね{EMOJI_NEG}こんな日は会社休んで{FIRST_PERSON}と{HOTEL}に行こうよ{EMOJI_POS}{NANCHATTE}",
 		"この{HOTEL}、すごいキレイ{EMOJI_POS}なんだって{EMOJI_POS}{FIRST_PERSON}と一緒に行こうよ{EMOJI_POS}",
