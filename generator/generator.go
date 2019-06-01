@@ -124,7 +124,7 @@ func insertPunctuations(message string, config PunctuationConfig) string {
 	rand.Seed(time.Now().UnixNano())
 	result := ""
 	// おじさんの文句の形態素解析に使われるなんて可哀そうなライブラリだな
-	t := tokenizer.New()
+	t := tokenizer.NewWithDic(tokenizer.SysDicIPASimple())
 	tokens := t.Tokenize(message)
 	for _, token := range tokens {
 		if token.Class == tokenizer.DUMMY {

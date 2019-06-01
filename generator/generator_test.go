@@ -63,3 +63,9 @@ func TestInsertPunctuations3(t *testing.T) {
 		t.Errorf("handler returned unexpected body: got %v want %v", actual, expected)
 	}
 }
+
+func BenchmarkPunctuation(b *testing.B) {
+	for i:=0; i < b.N; i++ {
+		insertPunctuations("どうしちゃったのかな", PunctuationConfig{[]string{"助動詞", "助詞"}, 100})
+	}
+}
