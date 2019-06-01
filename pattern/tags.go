@@ -170,7 +170,13 @@ func ConvertTags(message, targetName string, emojiNumber int) string {
 	for tag, pat := range flexTags {
 		n := strings.Count(message, tag)
 		for i := 0; i < n; i++ {
-			content := combineMultiplePatterns(pat, rand.Intn(emojiNumber)+1)
+			content := ""
+			if emojiNumber > 0 {
+				content = combineMultiplePatterns(pat, rand.Intn(emojiNumber) + 1)
+			} else {
+				// Ojisan could be seriously
+				content = "。"
+			}
 			// タグを置換
 			message = strings.Replace(message, tag, content, 1)
 		}
