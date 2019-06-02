@@ -85,6 +85,13 @@ var uniqTags = map[string][]string{
 		"カラオケ🎤",
 		"ドライブ🚗",
 	},
+	// おじさんは比喩で相手を持ち上げる (川柳)
+	"{METAPHOR}": []string{
+		"天使",
+		"女神",
+		"女優さん",
+		"お姫様",
+	},
 }
 
 // 文章中複数回変更&繰り返されるタグ
@@ -172,7 +179,7 @@ func ConvertTags(message, targetName string, emojiNumber int) string {
 		for i := 0; i < n; i++ {
 			content := ""
 			if emojiNumber > 0 {
-				content = combineMultiplePatterns(pat, rand.Intn(emojiNumber) + 1)
+				content = combineMultiplePatterns(pat, rand.Intn(emojiNumber)+1)
 			} else {
 				// Ojisan could be seriously
 				content = "。"

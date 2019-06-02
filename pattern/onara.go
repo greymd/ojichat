@@ -22,7 +22,7 @@ const (
 	ADMIRATION
 )
 
-// Onara ... Ojisan NArikiri Randomized Algorhytm: おじさんなりきり乱択アルゴリズム
+// Onara ... Ojisan NArikiri Randomized Algorithm: おじさんなりきり乱択アルゴリズム
 // おじさんの感情表現の順番を表す。
 // 近年の研究により (README.md 参考文献[1]) おじさんなりきるための効果的なアルゴリズムが提唱されている。
 var Onara = [][]OjisanEmotion{
@@ -34,8 +34,8 @@ var Onara = [][]OjisanEmotion{
 	[]OjisanEmotion{GREETING, CHEERING},
 	// GQI パターン
 	[]OjisanEmotion{GREETING, QUESTION, INVITATION},
-	// TODO: PA パターン (サンプルが少ないので無効中)
-	// []OjisanEmotion{PRAISING, ADMIRATION},
+	// PA パターン
+	[]OjisanEmotion{PRAISING, ADMIRATION},
 	// S パターン (短いので SS にする)
 	[]OjisanEmotion{SYMPATHY, SYMPATHY},
 }
@@ -59,6 +59,7 @@ var OnaraMessages = [][]string{
 		"{TARGET_NAME}、久しぶり{EMOJI_POS}",
 		"あれ{EMOJI_NEG}{TARGET_NAME}、朝と夜間違えたのかな{EMOJI_ASK}{FIRST_PERSON}はまだ起きてますよ〜{EMOJI_POS}",
 		"{TARGET_NAME}、そっちも{WEATHER}なのかな{EMOJI_ASK}",
+		"{TARGET_NAME}、こんな遅い時間{EMOJI_NEUT}に何をしているのかな{EMOJI_ASK}",
 	},
 	QUESTION: []string{
 		"今日はどんな一日だった{EMOJI_ASK}",
@@ -101,15 +102,19 @@ var OnaraMessages = [][]string{
 		"この{HOTEL}、{FOOD}がオイシイんだって{EMOJI_POS}{FIRST_PERSON}と一緒に行こうよ{EMOJI_POS}{NANCHATTE}",
 	},
 	PRAISING: []string{
-		"可愛すぎ{EMOJI_POS}",
-		"愛しいなぁもう{EMOJI_POS}",
-		"スタイルがいいね{EMOJI_POS}",
-		"キラキラ{EMOJI_POS}してるね{EMOJI_POS}",
-		"お肌がきれい✨だね{EMOJI_POS}",
+		"{TARGET_NAME}、愛しいなぁもう{EMOJI_POS}",
+		"{TARGET_NAME}は、スタイルがいいね{EMOJI_POS}",
+		"{TARGET_NAME}のお目々、キラキラ{EMOJI_POS}してるね{EMOJI_POS}",
+		"{TARGET_NAME}は、お肌がきれい✨だね{EMOJI_POS}",
+		"{TARGET_NAME}、髪の毛、切ったのかな{EMOJI_ASK}似合いすぎだよ{EMOJI_POS}",
+		"{TARGET_NAME}、可愛らしいね{EMOJI_POS}",
 	},
 	ADMIRATION: []string{
 		"今から寝ようと思ってたのに、目が覚めちゃったよ{EMOJI_POS}どうしてくれるんだ{EMOJI_POS}",
-		"可愛すぎだよ〜{EMOJI_POS}マッタクもう{EMOJI_POS}",
+		"可愛すぎて{FIRST_PERSON}お仕事に集中できなくなっちゃいそうだよ{EMOJI_NEG}どうしてくれるんだ{EMOJI_POS}",
+		"ホント可愛すぎだよ〜{EMOJI_POS}マッタクもう{EMOJI_POS}",
+		"こんなに可愛く{EMOJI_POS}なっちゃったら{METAPHOR}みたいで{FIRST_PERSON}困っちゃうよ{EMOJI_NEG}",
+		"{FIRST_PERSON}、本当に{METAPHOR}かと思っちゃったよ{EMOJI_POS}",
 	},
 	SYMPATHY: []string{
 		"{TARGET_NAME}{EMOJI_POS}元気、ないのかなぁ{EMOJI_NEG}大丈夫{EMOJI_ASK}",
