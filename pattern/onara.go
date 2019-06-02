@@ -34,8 +34,8 @@ var Onara = [][]OjisanEmotion{
 	[]OjisanEmotion{GREETING, CHEERING},
 	// GQI パターン
 	[]OjisanEmotion{GREETING, QUESTION, INVITATION},
-	// TODO: PA パターン (サンプルが少ないので無効中)
-	// []OjisanEmotion{PRAISING, ADMIRATION},
+	// PA パターン (サンプルが少ないので無効中)
+	[]OjisanEmotion{PRAISING, ADMIRATION},
 	// S パターン (短いので SS にする)
 	[]OjisanEmotion{SYMPATHY, SYMPATHY},
 }
