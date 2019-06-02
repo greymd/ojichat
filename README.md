@@ -88,26 +88,22 @@ $ ojichat
 ```
 
 ## Dockerコンテナ版
-環境を汚したくない方や、Goの実行環境を持っていない人がお手軽におじさんになるために、Dockerコンテナでも ojichat を用意しております。
+おじさんで環境を汚したくない、Goの実行環境を持っていないなどの状況でもお手軽におじさんになるために、Dockerコンテナでもojichatを用意してある ( [greymd/ojichat](https://hub.docker.com/r/greymd/ojichat) )。
 
 ### 使い方
-オプション等はすべて互換性があります。
 
-#### ojichat docker cli tool
+- `docker run --rm -i greymd/ojichat:latest` はオプション等を含めて全て `ojichat` と同じ動きをする。
 
-- `ojichat` と同じ動きをする
 ```
-$ docker run --rm -i hatobus/dk-ojichat:latest 
+$ docker run --rm -i greymd/ojichat:latest
 ヤッホー(^з<)🎵（笑）キララチャン、元気かな😜⁉️土曜日は仕事〜❗❓キララチャン😚😃♥ 💗元気、ないのかなァ(^▽^;)💦大丈夫⁉😜⁉️✋❓❓
 ```
 
 - `ojichat 坂東まりも` と同じ動きをする
 ```
-$ docker run --rm -i hatobus/dk-ojichat:latest 坂東まりも
+$ docker run --rm -i greymd/ojichat:latest 坂東まりも
 坂東まりもちゃん、久しぶり(^з<)(^з<)そういえば、昨日は例のラーメン屋さん🍜に行ってきたよ。結構いい雰囲気だったから、オススメだよ😚😚😍
 ```
-
-基本的には `docker run --rm -i hatobus/dk-ojichat:latest` が `ojichat` と互換になります。
 
 ## 参考文献
 
