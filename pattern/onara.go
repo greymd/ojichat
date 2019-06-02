@@ -22,7 +22,7 @@ const (
 	ADMIRATION
 )
 
-// Onara ... Ojisan NArikiri Randomized Algorhytm: おじさんなりきり乱択アルゴリズム
+// Onara ... Ojisan NArikiri Randomized Algorithm: おじさんなりきり乱択アルゴリズム
 // おじさんの感情表現の順番を表す。
 // 近年の研究により (README.md 参考文献[1]) おじさんなりきるための効果的なアルゴリズムが提唱されている。
 var Onara = [][]OjisanEmotion{
