@@ -1,7 +1,5 @@
 FROM golang:1.12.5-alpine3.9 as build-stage
 
-RUN go version
-
 ENV GO111MODULE off
 RUN apk --no-cache add git && go get github.com/greymd/ojichat
 ENV GO111MODULE on
