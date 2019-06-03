@@ -9,7 +9,7 @@ import (
 	"github.com/greymd/ojichat/generator"
 )
 
-var appVersion = `Ojisan Nanchatte (ojichat) command version 0.1.0
+var appVersion = `Ojisan Nanchatte (ojichat) command version 0.2.0
 Copyright (c) 2019 Yamada, Yasuhiro
 Released under the MIT License.
 https://github.com/greymd/ojichat`
