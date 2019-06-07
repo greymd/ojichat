@@ -1,11 +1,10 @@
+# use the latest ubuntu environment (18.04) available on travis
+dist: xenial
+
 language: go
 
 go:
   - 1.12.x
-
-env:
-  - GO111MODULE=on
-  - GOFLAGS='-mod vendor'
 
 install: true
 
