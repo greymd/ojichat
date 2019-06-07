@@ -3,6 +3,12 @@ language: go
 go:
   - 1.12.x
 
+env:
+  - GO111MODULE=on
+  - GOFLAGS='-mod vendor'
+
+install: true
+
 before_script:
   - go install github.com/golangci/golangci-lint/cmd/golangci-lint
 
