@@ -1,0 +1,11 @@
+language: go
+
+env:
+  - GO111MODULE=on
+  - GOFLAGS='-mod vendor'
+
+go:
+  - 1.12.x
+
+script:
+  - go test -v ./generator ./pattern
