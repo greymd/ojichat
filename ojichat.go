@@ -31,7 +31,11 @@ func main() {
 	}
 	args, _ := parser.ParseArgs(usage, nil, appVersion)
 	config := generator.Config{}
-	args.Bind(&config)
+	err := args.Bind(&config)
+	if err != nil {
+		log.Fatal(err)
+		os.Exit(1)
+	}
 
 	result, err := generator.Start(config)
 	if err != nil {
