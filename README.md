@@ -1,5 +1,8 @@
 # ojichat
 
+[![Build Status](https://travis-ci.org/greymd/ojichat.svg?branch=master)](https://travis-ci.org/greymd/ojichat)
+[![codecov](https://codecov.io/gh/greymd/ojichat/branch/master/graph/badge.svg)](https://codecov.io/gh/greymd/ojichat)
+
 Ojisan Nanchatte (ojichat) Generator
 
 ## なんだこれは
