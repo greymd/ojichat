@@ -1,11 +1,11 @@
 language: go
 
-env:
-  - GO111MODULE=on
-  - GOFLAGS='-mod vendor'
-
 go:
   - 1.12.x
 
+before_script:
+  - go install github.com/golangci/golangci-lint/cmd/golangci-lint
+
 script:
-  - go test -v ./generator ./pattern
+  - golangci-lint run
+  - go test -v ./...
