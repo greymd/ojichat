@@ -28,6 +28,12 @@ go get -u github.com/greymd/ojichat
 GO111MODULE=off go get -u github.com/greymd/ojichat
 ```
 
+#### Gitpodを使って簡単に利用する
+
+リンクを開くとojichatが利用できます。
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/greymd/ojichat)
+
 ## 使い方
 
 ```bash
