@@ -28,12 +28,6 @@ go get -u github.com/greymd/ojichat
 GO111MODULE=off go get -u github.com/greymd/ojichat
 ```
 
-#### Gitpodを使って簡単に利用する
-
-リンクを開くとojichatが利用できます。
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/greymd/ojichat)
-
 ## 使い方
 
 ```bash
@@ -113,6 +107,9 @@ $ docker run --rm -i greymd/ojichat:latest
 $ docker run --rm -i greymd/ojichat:latest 坂東まりも
 坂東まりもちゃん、久しぶり(^з<)(^з<)そういえば、昨日は例のラーメン屋さん🍜に行ってきたよ。結構いい雰囲気だったから、オススメだよ😚😚😍
 ```
+
+## 関連ツール等 (Wiki)
+https://github.com/greymd/ojichat/wiki/Related-services-and-tools
 
 ## 参考文献
 
