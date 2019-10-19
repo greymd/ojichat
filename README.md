@@ -1,9 +1,16 @@
 # ojichat
 
-[![Build Status](https://travis-ci.org/greymd/ojichat.svg?branch=master)](https://travis-ci.org/greymd/ojichat)
-[![codecov](https://codecov.io/gh/greymd/ojichat/branch/master/graph/badge.svg)](https://codecov.io/gh/greymd/ojichat)
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/wiki/greymd/ojichat/img/ojichat_logo.png" height="178" width="485" />
+   <h4 align="center">Ojisan Nanchatte (ojichat) Generator</h2>
+</h1>
 
-Ojisan Nanchatte (ojichat) Generator
+<p align="center">
+  <a href="https://github.com/greymd/ojichat/releases/latest"><img src="https://img.shields.io/github/release/greymd/ojichat.svg" alt="Latest version" /></a>
+  <a href="https://travis-ci.org/greymd/ojichat"><img src="https://travis-ci.org/greymd/ojichat.svg?branch=master" alt="Build Status" /></a>
+  <a href="LICENSE" alt="MIT License"><img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" /></a>
+  <a href="https://codecov.io/gh/greymd/ojichat"><img src="https://codecov.io/gh/greymd/ojichat/branch/master/graph/badge.svg" alt="codecov" /></a>
+</p>
 
 ## なんだこれは
 
