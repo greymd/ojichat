@@ -1,5 +1,3 @@
-# ojichat
-
 <h1 align="center">
   <img src="https://raw.githubusercontent.com/wiki/greymd/ojichat/img/ojichat_logo.png" height="178" width="485" />
    <h4 align="center">Ojisan Nanchatte (ojichat) Generator</h2>
