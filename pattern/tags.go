@@ -12,19 +12,16 @@ import (
 var uniqTags = map[string][]string{
 	// 対象の名前
 	"{TARGET_NAME}": []string{},
-	// おじさんの一人称
+	// お姫様の一人称
 	"{FIRST_PERSON}": []string{
-		"僕",
-		"ボク",
-		"ﾎﾞｸ",
+		"私",
+		"わたし",
+		"我",
 		"俺",
-		"オレ",
-		"ｵﾚ",
+		"うち",
+		"ウチ",
+		"ぁたし",
 		"小生",
-		"オジサン",
-		"ｵｼﾞｻﾝ",
-		"おじさん",
-		"オイラ",
 	},
 	// 曜日
 	"{DAY_OF_WEEK}": []string{
@@ -41,43 +38,36 @@ var uniqTags = map[string][]string{
 		"バー🍷",
 		"ラーメン屋さん🍜",
 		"中華🍜",
+		"フレンチ🍽",
 	},
 	// 食べ物
 	"{FOOD}": []string{
-		"お惣菜",
-		"サラダ",
-		"おにぎり🍙",
-		"きんぴらごぼう",
-		"ピッツァ🍕",
+		"お惣菜🍖",
+		"サラダ🥗",
+		"ピザ🍕",
 		"パスタ🍝",
 		"スイーツ🍮",
 		"ケーキ🎂",
+		"ビール🍺",
+		"タピオカ🥟",
+		"ぎょうざ🥟",
 	},
 	// 天気
 	"{WEATHER}": []string{
-		"曇り",
-		"晴れ",
-		"快晴",
-		"大雨",
-		"雨",
-		"雪",
+		"曇り☁️",
+		"晴れ🌞",
+		"快晴☀️",
+		"大雨☔️",
+		"雨☂️",
+		"雪❄️",
 		"台風🌀",
-	},
-	// 下ネタの後は「ナンチャッテ」「冗談（笑）」を使う(README.md 参考文献[2])
-	"{NANCHATTE}": []string{
-		"ﾅﾝﾁｬｯﾃ{EMOJI_POS}",
-		"ナンチャッテ{EMOJI_POS}",
-		"なんちゃって{EMOJI_POS}",
-		"なんてね{EMOJI_POS}",
-		"冗談{EMOJI_POS}",
-		"", // おじさんはたまに本気
 	},
 	// TODO: 「かな？」と「かい？」の語尾の違いも組み込んでも良いかもしれない
 	// おじさんの欲望の地、ホテル
-	"{HOTEL}": []string{
-		"ホテル🏨",
-		"ホテル🏩",
-		"旅館",
+	"{TAPIOKA}": []string{
+		"タピオカ",
+		"ゴンチャ",
+		"THE ALLEY",
 	},
 	// デートの種類
 	"{DATE}": []string{
@@ -87,10 +77,11 @@ var uniqTags = map[string][]string{
 	},
 	// おじさんは比喩で相手を持ち上げる (川柳)
 	"{METAPHOR}": []string{
-		"天使",
-		"女神",
-		"女優さん",
-		"お姫様",
+		"イケメン",
+		"かっこいい",
+		"天才",
+		"ゴリラ",
+		"優男",
 	},
 }
 
@@ -98,8 +89,9 @@ var uniqTags = map[string][]string{
 var flexTags = map[string][]string{
 	// ポジティブな表現の絵文字/顔文字
 	"{EMOJI_POS}": []string{
-		"😃♥ ",
-		"😃☀ ",
+		"🍣🍣🍣",
+		"🍒🍒🍒",
+		"😃",
 		"😃",
 		"😃✋",
 		"❗",
@@ -115,10 +107,7 @@ var flexTags = map[string][]string{
 		"😋",
 		"😂",
 		"😊",
-		"🎵",
-		"(^_^)",
-		"(^o^)",
-		"(^з<)",
+		"^_^",
 		"（笑）",
 	},
 	// ネガティヴな表現の絵文字/顔文字
@@ -133,14 +122,14 @@ var flexTags = map[string][]string{
 		"😖",
 		"😥",
 		"😢",
-		"(◎ ＿◎;)",
-		"(T_T)",
-		"^^;",
+		"😮",
+		"😬",
+		"🤧",
+		"🥺",
+		"(💢･ᴗ･)",
+		":((;´☋`;)):",
+		"(　˙-˙　)",
 		"(^_^;",
-		"(・_・;",
-		"(￣Д￣；；",
-		"(^▽^;)",
-		"(-_-;)",
 	},
 	// ニュートラルな感情を表す絵文字/顔文字
 	"{EMOJI_NEUT}": []string{
@@ -197,7 +186,7 @@ func ConvertTags(message, targetName string, emojiNumber int) string {
 			if emojiNumber > 0 {
 				content = combineMultiplePatterns(pat, rand.Intn(emojiNumber)+1)
 			} else {
-				// Ojisan could be seriously
+				// Ohimesama could be seriously
 				content = "。"
 			}
 			// タグを置換

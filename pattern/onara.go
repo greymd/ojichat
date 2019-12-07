@@ -1,11 +1,11 @@
 package pattern
 
-// OjisanEmotion ... おじさんの感情列挙体
-type OjisanEmotion int
+// OhimesamaEmotion ... おじさんの感情列挙体
+type OhimesamaEmotion int
 
 const (
 	// GREETING ... 挨拶
-	GREETING OjisanEmotion = iota
+	GREETING OhimesamaEmotion = iota
 	// QUESTION ... 疑問
 	QUESTION
 	// REPORTING ... 報告
@@ -22,22 +22,22 @@ const (
 	ADMIRATION
 )
 
-// Onara ... Ojisan NArikiri Randomized Algorithm: おじさんなりきり乱択アルゴリズム
-// おじさんの感情表現の順番を表す。
-// 近年の研究により (README.md 参考文献[1]) おじさんなりきるための効果的なアルゴリズムが提唱されている。
-var Onara = [][]OjisanEmotion{
+// Onara ... Ohimesama NArikiri Randomized Algorithm: お姫様なりきり乱択アルゴリズム
+// お姫様の感情表現の順番を表す。
+// 近年の研究により (README.md 参考文献[1]) お姫様になりきるための効果的なアルゴリズムが提唱されている。
+var Onara = [][]OhimesamaEmotion{
 	// GQS パターン
-	[]OjisanEmotion{GREETING, QUESTION, SYMPATHY},
+	[]OhimesamaEmotion{GREETING, QUESTION, SYMPATHY},
 	// GR パターン
-	[]OjisanEmotion{GREETING, REPORTING},
+	[]OhimesamaEmotion{GREETING, REPORTING},
 	// GC パターン
-	[]OjisanEmotion{GREETING, CHEERING},
+	[]OhimesamaEmotion{GREETING, CHEERING},
 	// GQI パターン
-	[]OjisanEmotion{GREETING, QUESTION, INVITATION},
+	[]OhimesamaEmotion{GREETING, QUESTION, INVITATION},
 	// PA パターン
-	[]OjisanEmotion{PRAISING, ADMIRATION},
+	[]OhimesamaEmotion{PRAISING, ADMIRATION},
 	// S パターン (短いので SS にする)
-	[]OjisanEmotion{SYMPATHY, SYMPATHY},
+	[]OhimesamaEmotion{SYMPATHY, SYMPATHY},
 }
 
 // OnaraMessages .. メッセージのテンプレート
@@ -54,7 +54,7 @@ var OnaraMessages = [][]string{
 		"{TARGET_NAME}、ヤッホー{EMOJI_POS}何してるのかい{EMOJI_ASK}",
 		"{TARGET_NAME}、今日もお仕事かな{EMOJI_POS}",
 		"ヤッホー{EMOJI_POS}{TARGET_NAME}、元気かな{EMOJI_ASK}",
-		"{TARGET_NAME}、会社をサボるなんて、悪い子だなぁ{EMOJI_POS}{NANCHATTE}",
+		"{TARGET_NAME}、会社をサボるなんて、悪い子だなぁ{EMOJI_POS}",
 		"おはよー！チュッ{EMOJI_POS}",
 		"{TARGET_NAME}、久しぶり{EMOJI_POS}",
 		"あれ{EMOJI_NEG}{TARGET_NAME}、朝と夜間違えたのかな{EMOJI_ASK}{FIRST_PERSON}はまだ起きてますよ〜{EMOJI_POS}",
@@ -70,18 +70,18 @@ var OnaraMessages = [][]string{
 		"{DAY_OF_WEEK}曜日は仕事〜{EMOJI_ASK}",
 		"今日はもう寝ちゃったのかな{EMOJI_NEUT}",
 		"たまには{FIRST_PERSON}にも連絡ほしいな{EMOJI_POS}",
-		"{FIRST_PERSON}明日も仕事だけどなかなか寝れないよ〜{EMOJI_NEG}早く{TARGET_NAME}に会いたいよ{EMOJI_NEG}{NANCHATTE}",
+		"{FIRST_PERSON}明日も仕事だけどなかなか寝れないよ〜{EMOJI_NEG}早く{TARGET_NAME}に会いたいよ{EMOJI_NEG}",
 		"{TARGET_NAME}と一緒に今度ランチ、したいなぁ{EMOJI_POS}",
 		"{TARGET_NAME}と今度イチャイチャ、したいなぁ{EMOJI_POS}",
 	},
 	REPORTING: []string{
 		"今日は{LOCATION}28度だよ{EMOJI_NEG}暑いよ{EMOJI_NEG}ヤケドしないように気をつけないとね{EMOJI_POS}",
-		"今日は{LOCATION}30度超えるんだって{EMOJI_NEG}暑いね〜{EMOJI_NEG}こんな日は{FIRST_PERSON}と裸のお付き合い{EMOJI_POS}しよ{EMOJI_POS}{NANCHATTE}",
-		"{FIRST_PERSON}はさっきお風呂入ったよ{EMOJI_POS}{TARGET_NAME}とお風呂いきたいなー{EMOJI_POS}{NANCHATTE}",
+		"今日は{LOCATION}30度超えるんだって{EMOJI_NEG}暑いね〜{EMOJI_NEG}こんな日は{FIRST_PERSON}と裸のお付き合い{EMOJI_POS}しよ{EMOJI_POS}",
+		"{FIRST_PERSON}はさっきお風呂入ったよ{EMOJI_POS}{TARGET_NAME}とお風呂いきたいなー{EMOJI_POS}",
 		"{FIRST_PERSON}は、近所に新しくできた{RESTAURANT}に行ってきたよ。味はまぁまぁだったかな{EMOJI_POS}",
 		"そういえば、昨日は例の{RESTAURANT}に行ってきたよ。結構いい雰囲気だったから、オススメだよ{EMOJI_POS}",
 		"{FIRST_PERSON}は今日から{LOCATION}へ〜{EMOJI_POS}",
-		"お弁当の{FOOD}が美味しくて、それと一緒に{TARGET_NAME}のことも食べちゃいたいな〜{EMOJI_POS}{NANCHATTE}",
+		"お弁当の{FOOD}が美味しくて、それと一緒に{TARGET_NAME}のことも食べちゃいたいな〜{EMOJI_POS}",
 		"本日のランチ🍴は奮発して{FOOD}付き{EMOJI_POS}誰だメタボなんて言ったやつは{EMOJI_NEG}",
 		"出張で{LOCATION}に行ってきたよ{EMOJI_POS}観光でも、行きたいなぁ{EMOJI_POS}モチロン、{TARGET_NAME}とね",
 	},
@@ -95,11 +95,11 @@ var OnaraMessages = [][]string{
 		"今週の{DAY_OF_WEEK}曜日、仕事が早く終わりそうなんだけど、ご飯でもどうかな{EMOJI_ASK}",
 		"突然だけど、{TARGET_NAME}は{RESTAURANT}好きカナ{EMOJI_ASK}{DAY_OF_WEEK}曜日ご飯行こうよ{EMOJI_POS}",
 		"そろそろご飯行こうよ{EMOJI_POS}ご要望とかはあるのかな{EMOJI_POS}{EMOJI_ASK}",
-		"{DAY_OF_WEEK}曜日、会社がお休みになったよ{EMOJI_POS}{TARGET_NAME}は都合どうかな{EMOJI_ASK}{DATE}どう{EMOJI_POS}{NANCHATTE}",
-		"天気悪いと気分もよくないよね{EMOJI_NEG}じゃあ今日は会社休んで{FIRST_PERSON}と{DATE}しよう{EMOJI_POS}{NANCHATTE}",
-		"今日は天気が悪いね{EMOJI_NEG}こんな日は会社休んで{FIRST_PERSON}と{HOTEL}に行こうよ{EMOJI_POS}{NANCHATTE}",
-		"この{HOTEL}、すごいキレイ{EMOJI_POS}なんだって{EMOJI_POS}{FIRST_PERSON}と一緒に行こうよ{EMOJI_POS}{NANCHATTE}",
-		"この{HOTEL}、{FOOD}がオイシイんだって{EMOJI_POS}{FIRST_PERSON}と一緒に行こうよ{EMOJI_POS}{NANCHATTE}",
+		"{DAY_OF_WEEK}曜日、会社がお休みになったよ{EMOJI_POS}{TARGET_NAME}は都合どうかな{EMOJI_ASK}{DATE}どう{EMOJI_POS}",
+		"天気悪いと気分もよくないよね{EMOJI_NEG}じゃあ今日は会社休んで{FIRST_PERSON}と{DATE}しよう{EMOJI_POS}",
+		"今日は天気が悪いね{EMOJI_NEG}こんな日は会社休んで{FIRST_PERSON}と{TAPIOKA}に行こうよ{EMOJI_POS}",
+		"この{TAPIOKA}、すごいキレイ{EMOJI_POS}なんだって{EMOJI_POS}{FIRST_PERSON}と一緒に行こうよ{EMOJI_POS}",
+		"この{TAPIOKA}、{FOOD}がオイシイんだって{EMOJI_POS}{FIRST_PERSON}と一緒に行こうよ{EMOJI_POS}",
 	},
 	PRAISING: []string{
 		"{TARGET_NAME}、愛しいなぁもう{EMOJI_POS}",
