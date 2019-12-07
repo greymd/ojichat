@@ -1,4 +1,4 @@
-module github.com/greymd/ojichat
+module github.com/gyozabu/himechat-cli
 
 go 1.12
 
