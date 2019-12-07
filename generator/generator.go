@@ -6,10 +6,10 @@ import (
 	"regexp"
 	"strconv"
 	"time"
-
 	"github.com/greymd/ojichat/pattern"
-	"github.com/ikawaha/kagome.ipadic/tokenizer"
+	// "github.com/ikawaha/kagome.ipadic/tokenizer"
 	"github.com/miiton/kanaconv"
+	"golang.org/x/exp/utf8string"
 )
 
 // PunctuationConfig ... 句読点挿入の設定
@@ -59,6 +59,7 @@ func Start(config Config) (string, error) {
 	}
 	// 句読点レベルに応じて、おじさんのように文中に句読点を適切に挿入する
 	result := insertPunctuations(selectedMessage, pconfigs[level])
+
 	return result, nil
 }
 
@@ -118,33 +119,20 @@ func katakanaKatsuyou(message string, number int) string {
 // 句読点レベルに応じ、助詞、助動詞の後に句読点を挿入する
 // 関数の引数→引数名+型名
 func insertPunctuations(message string, config PunctuationConfig) string {
-	if config.Rate == 0 { //句読点をつけないとき
+	// fmt.Printf("%s\n", message)
+
+	if config.Rate == 0 { //句読点をつけない場合
 		return message
 	}
-	rand.Seed(time.Now().UnixNano())
+	rand.Seed(time.Now().UnixNano())//乱数をつかうためのデフォ
 
 	result := ""
-	// おじさんの文句の形態素解析に使われるなんて可哀そうなライブラリだな
-	t := tokenizer.NewWithDic(tokenizer.SysDicIPASimple())
-	tokens := t.Tokenize(message)
-	for _, token := range tokens {
-		if token.Class == tokenizer.DUMMY {
-			continues
-		}
-		features := token.Features()
-		hinshiFlag := false
-		//targetHinshis
-		for _, hinshi := range config.TargetHinshis {
-			if hinshi == features[0] {
-				hinshiFlag = true
-				break
-			}
-		}
-		if hinshiFlag && rand.Intn(100) <= config.Rate {
-			result += token.Surface + "、"
-		} else {
-			result += token.Surface
-		}
+	//おじさんの文句の形態素解析に使われるなんて可哀そうなライブラリだな
+
+	for i := 0; i < len(message); i++ {
+
+		utf_message := utf8string.NewString(message)
+		fmt.Println(utf_message.Slice(1, utf_message.RuneCount()))
 	}
 	return result
 }
