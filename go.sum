@@ -1,5 +1,6 @@
 github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815 h1:bWDMxwH3px2JBh6AyO7hdCn/PkvCZXii8TGj7sbtEbQ=
 github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815/go.mod h1:WwZ+bS3ebgob9U8Nd0kOddGdZWjyMGR8Wziv+TBNwSE=
+github.com/gyozabu/himechat-cli v0.2.0 h1:KyGQZfQqKtT/cWD9r/DjvS6DpeNTGHLd+CUwIf6GR5c=
 github.com/ikawaha/kagome.ipadic v1.1.0 h1:9hzwhcklEL4Cmp+lM9HQfmDg2nhB43Fe1n9UUY6mifY=
 github.com/ikawaha/kagome.ipadic v1.1.0/go.mod h1:DPSBbU0czaJhAb/5uKQZHMc9MTVRpDugJfX+HddPHHg=
 github.com/jessevdk/go-assets v0.0.0-20160921144138-4f4301a06e15 h1:cW/amwGEJK5MSKntPXRjX4dxs/nGxGT8gXKIsKFmHGc=

@@ -197,7 +197,7 @@ func ConvertTags(message, targetName string, emojiNumber int) string {
 			if emojiNumber > 0 {
 				content = combineMultiplePatterns(pat, rand.Intn(emojiNumber)+1)
 			} else {
-				// Ojisan could be seriously
+				// Ohimesama could be seriously
 				content = "。"
 			}
 			// タグを置換

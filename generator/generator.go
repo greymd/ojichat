@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/greymd/ojichat/pattern"
+	"github.com/gyozabu/himechat-cli/pattern"
 	"github.com/ikawaha/kagome.ipadic/tokenizer"
 	"github.com/miiton/kanaconv"
 )
@@ -70,9 +70,9 @@ func selectMessage() string {
 	selectedOnara := pattern.Onara[rand.Intn(len(pattern.Onara))]
 
 	// 重複した表現を避けるためのブラックリストを感情ごとに用意
-	blacklist := map[pattern.OjisanEmotion]map[int]bool{}
+	blacklist := map[pattern.OhimesamaEmotion]map[int]bool{}
 	for i := range pattern.OnaraMessages {
-		blacklist[pattern.OjisanEmotion(i)] = make(map[int]bool)
+		blacklist[pattern.OhimesamaEmotion(i)] = make(map[int]bool)
 	}
 
 	// アルゴリズム内で表現されたそれぞれの感情に対応した文言を選定

@@ -1,11 +1,11 @@
 package pattern
 
-// OjisanEmotion ... おじさんの感情列挙体
-type OjisanEmotion int
+// OhimesamaEmotion ... おじさんの感情列挙体
+type OhimesamaEmotion int
 
 const (
 	// GREETING ... 挨拶
-	GREETING OjisanEmotion = iota
+	GREETING OhimesamaEmotion = iota
 	// QUESTION ... 疑問
 	QUESTION
 	// REPORTING ... 報告
@@ -22,22 +22,22 @@ const (
 	ADMIRATION
 )
 
-// Onara ... Ojisan NArikiri Randomized Algorithm: おじさんなりきり乱択アルゴリズム
-// おじさんの感情表現の順番を表す。
-// 近年の研究により (README.md 参考文献[1]) おじさんなりきるための効果的なアルゴリズムが提唱されている。
-var Onara = [][]OjisanEmotion{
+// Onara ... Ohimesama NArikiri Randomized Algorithm: お姫様なりきり乱択アルゴリズム
+// お姫様の感情表現の順番を表す。
+// 近年の研究により (README.md 参考文献[1]) お姫様になりきるための効果的なアルゴリズムが提唱されている。
+var Onara = [][]OhimesamaEmotion{
 	// GQS パターン
-	[]OjisanEmotion{GREETING, QUESTION, SYMPATHY},
+	[]OhimesamaEmotion{GREETING, QUESTION, SYMPATHY},
 	// GR パターン
-	[]OjisanEmotion{GREETING, REPORTING},
+	[]OhimesamaEmotion{GREETING, REPORTING},
 	// GC パターン
-	[]OjisanEmotion{GREETING, CHEERING},
+	[]OhimesamaEmotion{GREETING, CHEERING},
 	// GQI パターン
-	[]OjisanEmotion{GREETING, QUESTION, INVITATION},
+	[]OhimesamaEmotion{GREETING, QUESTION, INVITATION},
 	// PA パターン
-	[]OjisanEmotion{PRAISING, ADMIRATION},
+	[]OhimesamaEmotion{PRAISING, ADMIRATION},
 	// S パターン (短いので SS にする)
-	[]OjisanEmotion{SYMPATHY, SYMPATHY},
+	[]OhimesamaEmotion{SYMPATHY, SYMPATHY},
 }
 
 // OnaraMessages .. メッセージのテンプレート
