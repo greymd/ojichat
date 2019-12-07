@@ -9,7 +9,8 @@ import (
 
 	"github.com/gyozabu/himechat-cli/pattern"
 	"github.com/ikawaha/kagome.ipadic/tokenizer"
-	// "github.com/miiton/kanaconv"
+	"github.com/miiton/kanaconv"
+	"golang.org/x/exp/utf8string"
 )
 
 // PunctuationConfig ... 句読点挿入の設定
