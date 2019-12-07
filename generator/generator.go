@@ -94,26 +94,31 @@ func selectMessage() string {
 			}
 		}
 		// 挨拶以外の感情に関しては語尾を最大2文字までカタカナに変換するおじさんカタカナ活用を適用する
-		if s != pattern.GREETING {
-			selectedMessage = katakanaKatsuyou(selectedMessage, rand.Intn(3))
-		}
+		// if s != pattern.GREETING {
+		// 	selectedMessage = katakanaKatsuyou(selectedMessage, rand.Intn(3))
+		// }
 	}
 
 	return selectedMessage
 }
 
 // カタカナ活用を適用する
-func katakanaKatsuyou(message string, number int) string {
-	var reg *regexp.Regexp
-	if number < 1 {
-		return message
-	}
-	reg = regexp.MustCompile(`^(.+)(\p{Hiragana}{` + strconv.Itoa(number) + `})([^\p{Hiragana}]*)$`)
-	hiraganas := reg.FindSubmatch([]byte(message))
-	if len(hiraganas) != 4 {
-		return message
-	}
-	return string(hiraganas[1]) + kanaconv.HiraganaToKatakana(string(hiraganas[2])) + string(hiraganas[3])
+// func katakanaKatsuyou(message string, number int) string {
+// 	var reg *regexp.Regexp
+// 	if number < 1 {
+// 		return message
+// 	}
+// 	reg = regexp.MustCompile(`^(.+)(\p{Hiragana}{` + strconv.Itoa(number) + `})([^\p{Hiragana}]*)$`)
+// 	hiraganas := reg.FindSubmatch([]byte(message))
+// 	if len(hiraganas) != 4 {
+// 		return message
+// 	}
+// 	return string(hiraganas[1]) + kanaconv.HiraganaToKatakana(string(hiraganas[2])) + string(hiraganas[3])
+// }
+
+// マジや卍などを挿入する
+func insertHappyWords() string {
+
 }
 
 // 句読点レベルに応じ、助詞、助動詞の後に句読点を挿入する
@@ -124,6 +129,7 @@ func insertPunctuations(message string, config PunctuationConfig) string {
 	rand.Seed(time.Now().UnixNano())
 	result := ""
 	// おじさんの文句の形態素解析に使われるなんて可哀そうなライブラリだな
+	// お姫様になったのでセーフ
 	t := tokenizer.NewWithDic(tokenizer.SysDicIPASimple())
 	tokens := t.Tokenize(message)
 	for _, token := range tokens {
@@ -139,7 +145,7 @@ func insertPunctuations(message string, config PunctuationConfig) string {
 			}
 		}
 		if hinshiFlag && rand.Intn(100) <= config.Rate {
-			result += token.Surface + "、"
+			result += token.Surface + "、、、"
 		} else {
 			result += token.Surface
 		}
