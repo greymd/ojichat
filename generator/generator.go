@@ -118,14 +118,11 @@ func katakanaKatsuyou(message string, number int) string {
 
 // 句読点レベルに応じ、助詞、助動詞の後に句読点を挿入する
 func insertPunctuations(message string, config PunctuationConfig) string {
-	if config.Rate == 0 { 
+	if config.Rate == 0 {
 		return message
 	}
 	rand.Seed(time.Now().UnixNano())
-
 	result := ""
-	//おじさんの文句の形態素解析に使われるなんて可哀そうなライブラリだな
-
 	// おじさんの文句の形態素解析に使われるなんて可哀そうなライブラリだな
 	t := tokenizer.NewWithDic(tokenizer.SysDicIPASimple())
 	tokens := t.Tokenize(message)
