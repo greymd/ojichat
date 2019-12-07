@@ -59,7 +59,6 @@ func Start(config Config) (string, error) {
 	}
 	// 句読点レベルに応じて、おじさんのように文中に句読点を適切に挿入する
 	result := insertPunctuations(selectedMessage, pconfigs[level])
-
 	return result, nil
 }
 
@@ -117,21 +116,24 @@ func katakanaKatsuyou(message string, number int) string {
 }
 
 // 句読点レベルに応じ、助詞、助動詞の後に句読点を挿入する
+// 関数の引数→引数名+型名
 func insertPunctuations(message string, config PunctuationConfig) string {
-	if config.Rate == 0 {
+	if config.Rate == 0 { //句読点をつけないとき
 		return message
 	}
 	rand.Seed(time.Now().UnixNano())
+
 	result := ""
 	// おじさんの文句の形態素解析に使われるなんて可哀そうなライブラリだな
 	t := tokenizer.NewWithDic(tokenizer.SysDicIPASimple())
 	tokens := t.Tokenize(message)
 	for _, token := range tokens {
 		if token.Class == tokenizer.DUMMY {
-			continue
+			continues
 		}
 		features := token.Features()
 		hinshiFlag := false
+		//targetHinshis
 		for _, hinshi := range config.TargetHinshis {
 			if hinshi == features[0] {
 				hinshiFlag = true

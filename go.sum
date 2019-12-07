@@ -2,6 +2,7 @@ github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815 h1:bWDMxwH3px2JBh
 github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815/go.mod h1:WwZ+bS3ebgob9U8Nd0kOddGdZWjyMGR8Wziv+TBNwSE=
 github.com/ikawaha/kagome.ipadic v1.1.0 h1:9hzwhcklEL4Cmp+lM9HQfmDg2nhB43Fe1n9UUY6mifY=
 github.com/ikawaha/kagome.ipadic v1.1.0/go.mod h1:DPSBbU0czaJhAb/5uKQZHMc9MTVRpDugJfX+HddPHHg=
+github.com/ikawaha/kagome.ipadic v1.1.2 h1:pFxZ1PpMpc6ZoBK712YN5cVK0u/ju2DZ+gRIOriJFFs=
 github.com/jessevdk/go-assets v0.0.0-20160921144138-4f4301a06e15 h1:cW/amwGEJK5MSKntPXRjX4dxs/nGxGT8gXKIsKFmHGc=
 github.com/jessevdk/go-assets v0.0.0-20160921144138-4f4301a06e15/go.mod h1:Fdm/oWRW+CH8PRbLntksCNtmcCBximKPkVQYvmMl80k=
 github.com/mattn/go-gimei v0.0.0-20190131075016-6a4b8c0a2634 h1:rQws1wZBzK8WU0PdQtlpk/T6U/S1jtLotE71QSBFV1U=
