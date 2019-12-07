@@ -163,6 +163,14 @@ var flexTags = map[string][]string{
 	},
 }
 
+var happyWords = []string{
+	"マジ",
+	"卍",
+	"ゆーて",
+	"ぴえん🥺",
+	"めっちゃ",
+}
+
 // ConvertTags ; message内にあるタグを置換して結果を返す
 func ConvertTags(message, targetName string, emojiNumber int) string {
 	rand.Seed(time.Now().UnixNano())
