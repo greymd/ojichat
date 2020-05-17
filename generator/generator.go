@@ -39,9 +39,9 @@ var pconfigs = []PunctuationConfig{
 
 // Config ... main で受け取られる引数、オプション
 type Config struct {
-	TargetName        string `docopt:"<name>"`
-	EmojiNum          int    `docopt:"-e"`
-	PunctiuationLevel int    `docopt:"-p"`
+	TargetName       string `docopt:"<name>"`
+	EmojiNum         int    `docopt:"-e"`
+	PunctuationLevel int    `docopt:"-p"`
 }
 
 // Start ... おじさんの文言を生成
@@ -53,7 +53,7 @@ func Start(config Config) (string, error) {
 	// メッセージに含まれるタグを変換
 	selectedMessage = pattern.ConvertTags(selectedMessage, config.TargetName, config.EmojiNum)
 
-	level := config.PunctiuationLevel
+	level := config.PunctuationLevel
 	if level < 0 || level > 3 {
 		return "", fmt.Errorf("句読点挿入頻度レベルが不正です: %v", level)
 	}
