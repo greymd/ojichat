@@ -100,6 +100,8 @@ var OnaraMessages = [][]string{
 		"今日は天気が悪いね{EMOJI_NEG}こんな日は会社休んで{FIRST_PERSON}と{HOTEL}に行こうよ{EMOJI_POS}{NANCHATTE}",
 		"この{HOTEL}、すごいキレイ{EMOJI_POS}なんだって{EMOJI_POS}{FIRST_PERSON}と一緒に行こうよ{EMOJI_POS}{NANCHATTE}",
 		"この{HOTEL}、{FOOD}がオイシイんだって{EMOJI_POS}{FIRST_PERSON}と一緒に行こうよ{EMOJI_POS}{NANCHATTE}",
+		"住所教えてくれたら、{FIRST_PERSON}が{FOOD}を作ってあげるし、風邪なんてすぐ治る{EMOJI_POS}",
+		"{FIRST_PERSON}はプライベートで、{TARGET_NAME}を癒やして{EMOJI_POS}あげたい{EMOJI_POS}って思ってるよ{EMOJI_NEUT}",
 	},
 	PRAISING: []string{
 		"{TARGET_NAME}、愛しいなぁもう{EMOJI_POS}",
