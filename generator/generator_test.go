@@ -2,6 +2,26 @@ package generator
 
 import "testing"
 
+func TestStart1(t *testing.T) {
+	config := Config{}
+	actual, err := Start(config)
+	t.Log(actual)
+	if err != nil {
+		t.Errorf("handler returned unexpected body: got %v", err)
+	}
+}
+
+func TestStart2(t *testing.T) {
+	config := Config{
+		PunctuationLevel: 4,
+	}
+	_, err := Start(config)
+	t.Log(err)
+	if err == nil {
+		t.Errorf("handler returned unexpected body: got nil")
+	}
+}
+
 func TestKatakanaKatsuyou1(t *testing.T) {
 	expected := "なんちゃッテ"
 	actual := katakanaKatsuyou("なんちゃって", 2)
