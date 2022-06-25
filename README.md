@@ -23,14 +23,10 @@ go version go1.12 linux/amd64
 
 ## インストール
 
-```bash
-go get -u github.com/greymd/ojichat
-```
-
-環境変数`GO111MODULE=on`をセットしている場合は、以下のようにインストールする。
+インストールには Go の開発環境が必要です。
 
 ```bash
-GO111MODULE=off go get -u github.com/greymd/ojichat
+go install github.com/greymd/ojichat@latest
 ```
 
 ## 使い方
